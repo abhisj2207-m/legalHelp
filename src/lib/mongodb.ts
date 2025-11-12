@@ -1,7 +1,8 @@
 // lib/mongodb.ts
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI as string;
+const MONGODB_URI="mongodb+srv://abhisj2207_db_user:iHyO0MPLWFdXmbqW@clustervrbs1.1rvheys.mongodb.net/?retryWrites=true&w=majority"
+
 
 if (!MONGODB_URI) {
   throw new Error("⚠️ Missing MONGODB_URI in .env.local");
