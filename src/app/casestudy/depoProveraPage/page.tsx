@@ -10,14 +10,13 @@ export default function DepoProveraPage() {
         <div
           className="relative bg-cover bg-center h-[300px] sm:h-[350px] md:h-[400px] flex items-center justify-center sm:justify-start px-4 sm:px-10"
           style={{
-            backgroundImage:
-              "url('https://findthefirm.com/wp-content/uploads/2024/12/Depo-Provera-Lawyer.png')",
+            backgroundImage: "url('/Depo-Provera-Lawyer.png')",
           }}
         >
           <div className="bg-black/60 absolute inset-0"></div>
           <div className="relative z-10 text-center sm:text-left max-w-3xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-snug">
-              Depo-Provera Free Case Review
+              Depo-Provera Lawsuit Case Review
             </h1>
           </div>
         </div>
@@ -26,14 +25,14 @@ export default function DepoProveraPage() {
       {/* ===== LAWSUIT SUMMARY ===== */}
       <section className="py-10 max-w-4xl mx-auto px-4 sm:px-6">
         <p className="text-[15px] leading-relaxed text-gray-700">
-          <strong>Lawsuits against Depo-Provera</strong> allege that brand-name
-          and generic versions of this birth control injection may be linked to
-          an increased risk of meningiomas, typically benign brain tumors.
-          Plaintiffs claim Pfizer and other manufacturers failed to adequately
-          warn users. While no jury verdicts or mass settlements have been
-          finalized, a federal MDL was established in February 2025 and
-          currently includes over 550 consolidated claims as of July 2025, with
-          additional cases moving forward in state courts.
+          Thousands of women have filed legal claims alleging that the birth
+          control injection <strong>Depo-Provera</strong> (including Depo-SubQ
+          and generic versions) may increase the chance of developing{" "}
+          <strong>meningiomas — tumors that form in the brain</strong>. The
+          lawsuits argue that Pfizer and other manufacturers failed to warn
+          patients and physicians about these risks. As of July 2025, more than
+          550 lawsuits have been consolidated into a federal multidistrict
+          litigation (MDL), with more expected as attorneys continue to screen new cases.
         </p>
       </section>
 
@@ -52,7 +51,7 @@ export default function DepoProveraPage() {
         {/* Image */}
         <div className="flex justify-center">
           <Image
-            src="https://findthefirm.com/wp-content/uploads/2024/12/Depo-Provera-Lawyer.png"
+            src="/Depo-Provera-Lawyer.png"
             alt="Depo-Provera Lawyer"
             width={768}
             height={512}
@@ -63,17 +62,18 @@ export default function DepoProveraPage() {
         {/* Content */}
         <div>
           <h2 className="text-xl md:text-2xl font-semibold mb-4">
-            Depo-Provera and Brain Tumors
+            Depo-Provera and Brain Tumor Concerns
           </h2>
           <ul className="list-disc pl-5 text-[15px] space-y-2 text-gray-700">
             <li>
-              A March 2024 study in the <em>British Medical Journal</em> reported
-              that women using Depo-Provera for 12 months or longer had a 5.6-fold
-              increased risk of meningioma.
+              A major 2024 study published in the{" "}
+              <em>British Medical Journal</em> found that women who used
+              Depo-Provera for a year or more were{" "}
+              <strong>5.6× more likely to develop a meningioma</strong>.
             </li>
             <li>
-              The FDA has not required a U.S. label warning about brain-tumor
-              risk, despite similar warnings being added in the EU and UK.
+              Although Europe and the U.K. now require warnings,{" "}
+              <strong>no similar warning exists on U.S. packaging</strong>.
             </li>
           </ul>
 
@@ -92,28 +92,20 @@ export default function DepoProveraPage() {
       <section className="py-14 max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 className="text-xl md:text-2xl font-semibold mb-4">
-            Do I Qualify for a Depo-Provera Lawsuit?
+            Who May Qualify to File a Depo-Provera Claim?
           </h2>
           <p className="text-[15px] mb-4">
-            You may be eligible if all of the following apply:
+            People may qualify if the following applies:
           </p>
           <ul className="list-disc pl-5 text-[15px] space-y-2 text-gray-700">
-            <li>
-              You received Depo-Provera, Depo-SubQ Provera, or an authorized generic.
-            </li>
-            <li>
-              You used it for at least a year (typically two or more injections).
-            </li>
-            <li>
-              You received a meningioma diagnosis after beginning the injections.
-            </li>
-            <li>
-              Your case meets state-specific filing deadlines (commonly 2–3 years post-diagnosis).
-            </li>
+            <li>You received Depo-Provera or the generic injection.</li>
+            <li>You were on the medication for at least 1 year.</li>
+            <li>You were later diagnosed with a meningioma or related tumor.</li>
+            <li>You are still within your state’s filing deadline (typically 2–3 years after diagnosis).</li>
           </ul>
           <p className="text-[15px] mt-4">
-            Requirements vary by state and injury specifics. Contact a qualified
-            Depo-Provera attorney to assess your case.
+            A case evaluation helps determine eligibility. Speaking with a legal team is the best
+            way to confirm whether your claim qualifies for compensation.
           </p>
 
           <div className="mt-6">
@@ -129,7 +121,7 @@ export default function DepoProveraPage() {
         {/* Image */}
         <div className="flex justify-center">
           <Image
-            src="https://findthefirm.com/wp-content/uploads/2025/07/Depo-Provera-Lawsuit-1000x0-c-de.png"
+            src="/Depo-Provera-Lawsuit-1000x0-c-de.png"
             alt="Depo Provera Lawsuit"
             width={1000}
             height={750}
@@ -143,7 +135,7 @@ export default function DepoProveraPage() {
         {/* Image */}
         <div className="flex justify-center">
           <Image
-            src="https://findthefirm.com/wp-content/uploads/2025/07/project-articles-2-1200x930-1-1024x794.png"
+            src="/project-articles-2-1200x930-1-1024x794.png"
             alt="Depo Provera Updates"
             width={1024}
             height={794}
@@ -154,25 +146,22 @@ export default function DepoProveraPage() {
         {/* Content */}
         <div>
           <h2 className="text-xl md:text-2xl font-semibold mb-4">
-            What’s Happening Now
+            Status of the Depo-Provera Litigation
           </h2>
           <ul className="list-disc pl-5 text-[15px] space-y-2 text-gray-700">
             <li>
-              <strong>Feb 2025:</strong> MDL 3140 formed in the Northern District
-              of Florida under Judge Casey Rodgers.
+              <strong>Feb 2025:</strong> MDL No. 3140 created in the Northern
+              District of Florida.
             </li>
             <li>
-              <strong>By Jul 2025:</strong> Over 550 Depo-related lawsuits are
-              consolidated, with initial “bellwether” cases selected to help shape
-              future settlements.
+              <strong>July 2025:</strong> Over 550 active lawsuits with new
+              claims screened each month.
             </li>
             <li>
-              <strong>Evidence gathering:</strong> Ongoing document exchanges, with
-              more than 8,000 documents produced.
+              <strong>Discovery:</strong> More than 8,000 documents exchanged between attorneys.
             </li>
             <li>
-              <strong>Next steps:</strong> Discovery, case management orders, and
-              early trials could begin in 2025–26.
+              <strong>Next phase:</strong> Bellwether trials expected in 2025–2026.
             </li>
           </ul>
 
@@ -263,7 +252,7 @@ export default function DepoProveraPage() {
               required
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             >
-              <option value="">Have you received Depo-Provera injections?</option>
+              <option value="">Did you receive Depo-Provera injections?</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               <option value="Not Sure">Not Sure</option>
@@ -273,7 +262,7 @@ export default function DepoProveraPage() {
               required
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             >
-              <option value="">Were you diagnosed with meningioma?</option>
+              <option value="">Were you later diagnosed with a meningioma?</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               <option value="Not Sure">Not Sure</option>
@@ -284,10 +273,9 @@ export default function DepoProveraPage() {
           <label className="col-span-1 md:col-span-2 flex flex-col sm:flex-row items-start gap-3 text-[14px] text-gray-700">
             <input type="checkbox" required className="mt-1" />
             <span>
-              By checking the box, you agree to be contacted about your potential
-              case or promotional legal offers sent by or on behalf of Perfect
-              Legal Match, FusionByte Media, Legal Help Co and/or participating law
-              firms.
+              By checking the box, you agree to be contacted regarding your
+              case by Perfect Legal Match, FusionByte Media, Legal Help Co
+              and/or affiliated law firms.
             </span>
           </label>
 
@@ -306,12 +294,9 @@ export default function DepoProveraPage() {
       <section className="py-8 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-sm">
           <p className="text-xs text-slate-600 leading-relaxed">
-            Disclaimer: This is attorney advertising. No attorney-client
-            relationship is formed by submitting this form or interacting with
-            FusionByte Media, Legal Help Co, or affiliated law firms. Laws vary by
-            state; this content is for informational purposes and not legal
-            advice. Consult a licensed attorney in your state for advice tailored
-            to your situation.
+            Disclaimer: This is attorney advertising. Submitting this form does
+            not create an attorney-client relationship. Legal outcomes vary by
+            case and state. Speak with a licensed attorney for specific advice.
           </p>
         </div>
       </section>

@@ -37,25 +37,25 @@ export default function BabyFormulaPage() {
         {/* RIGHT CONTENT */}
         <div>
           <p className="text-xl md:text-2xl font-semibold mb-4 text-gray-900">
-            Who Is Eligible to File a Lawsuit Over Baby Formula?
+            Who Can Qualify to File a Baby Formula NEC Lawsuit?
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed text-[15px] sm:text-base">
-            Parents whose premature baby was diagnosed with necrotizing
-            enterocolitis after being fed Similac or Enfamil may be able to
-            pursue a baby formula lawsuit for compensation.
+            Families whose premature infant developed necrotizing enterocolitis
+            (NEC) after being fed cow’s-milk-based formula such as **Similac or
+            Enfamil** may be eligible to pursue a claim for compensation.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed text-[15px] sm:text-base">
-            Similac or Enfamil may have been given to your infant in the
-            hospital. If you’re unclear, your lawyer might be able to assist
-            you. Make sure to include the hospital’s name as well as its
-            location.
+            Many hospitals routinely provide formula to premature babies in the
+            NICU without informing parents that **cow’s-milk formula has been
+            linked to NEC**. If you’re unsure what was given at the hospital,
+            attorneys can help review hospital and medical records.
           </p>
           <p className="text-gray-700 mb-6 leading-relaxed text-[15px] sm:text-base">
-            You may have given your infant a Similac or Enfamil formula product
-            after he or she was discharged from the hospital. Attorneys advise
-            parents to save all receipts, proof of purchase, packing, and boxes
-            from the formula as evidence.
+            If formula was also used at home, attorneys recommend saving any
+            purchase receipts, packaging, or remaining product — these may be
+            useful forms of evidence.
           </p>
+
           <a
             href="#case-review"
             className="inline-block bg-[#d62814] hover:bg-[#b91c0c] text-white font-semibold text-[15px] px-6 py-3 rounded shadow transition-all w-full sm:w-auto text-center"
@@ -68,24 +68,26 @@ export default function BabyFormulaPage() {
       {/* ===== Q&A Section ===== */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 border-t border-gray-200">
         <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 text-gray-900">
-          Is it true that Enfamil and Similac formulas have been recalled?
+          Have Similac or Enfamil Baby Formulas Been Recalled?
         </h2>
+
         <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base">
-          Enfamil and Similac haven’t been recalled because of the risk of NEC.
-          However, there have been isolated retail recalls for product tampering,
-          as well as a recall in February 2022 for a possible bacterial
-          infection. During the tampering event, a few women reported finding
-          flour instead of formula in their Enfamil packages.
+          There has not been a **full recall specifically due to NEC** risks.
+          However, there have been separate recall events in the past involving:
         </p>
+
         <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base mt-3">
-          In a separate event, a few newborns became ill and died after consuming
-          Enfamil, which caused them to get bacterial infections. The formula was
-          examined by the FDA and found to be safe. After four newborns were
-          infected with Cronobacter sakazakii and one baby was infected with
-          Salmonella Newport, Abbott Nutrition recalled certain lots of Similac,
-          EleCare, and Alimentum prepared at its Sturgis, Michigan factory in
-          February 2022. The FDA and Abbott are still looking into the deaths of
-          two of the babies.
+          • product tampering (flour inside formula containers),  
+          • and a February 2022 recall related to possible bacterial
+          contamination of Similac, EleCare, and Alimentum products.
+        </p>
+
+        <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base mt-3">
+          During that investigation, multiple infants developed infections, and
+          some cases resulted in death. Although the FDA later confirmed certain
+          batches safe, legal claims continue to argue that **the manufacturers
+          failed to warn parents and hospitals about NEC risks in premature
+          infants.**
         </p>
       </section>
 
@@ -167,7 +169,7 @@ export default function BabyFormulaPage() {
               className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
               required
             >
-              <option value="">Was your child born prematurely?</option>
+              <option value="">Was your baby born prematurely?</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               <option value="Not Sure">Not Sure</option>
@@ -178,7 +180,9 @@ export default function BabyFormulaPage() {
               required
             >
               <option value="">Was your child diagnosed with NEC?</option>
-              <option value="Yes">Yes, confirmed by a doctor</option>
+              <option value="Yes, diagnosed by a doctor">
+                Yes, confirmed by a doctor
+              </option>
               <option value="No">No</option>
               <option value="Not Sure">Not Sure</option>
             </select>
@@ -190,10 +194,9 @@ export default function BabyFormulaPage() {
             <span>
               By checking the box, you agree to be contacted about your potential
               case or promotional legal offers sent by or on behalf of Perfect
-            Legal Match, FusionByte Media, Legal Help Co and/or participating law
-              firms. You may receive live calls, automated calls, emails or text
-              messages even if you are on a national or state “Do Not Call” list.
-              Consent is not a condition of purchase.
+              Legal Match, FusionByte Media, Legal Help Co and/or participating law
+              firms. You may receive calls, texts, or emails. Consent is not a
+              condition of purchase.
             </span>
           </label>
 

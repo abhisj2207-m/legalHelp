@@ -6,31 +6,31 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    text: "Fast and easy. I filled out the form, they called me back the next day. They made a complicated process simple.",
+    text: "The process was surprisingly simple. I filled out the form and had a call the very next day. What I thought would be confusing was handled step-by-step.",
     name: "Carlos T.",
     location: "Texas",
     boxStyle: "w-[320px] h-[300px]",
   },
   {
-    text: "My son was born prematurely and later diagnosed with NEC. I had no idea it could be linked to his formula. FindTheFirm connected me to a lawyer who is actually helping.",
+    text: "My premature baby was later diagnosed with NEC. I didn’t know his formula could be involved. Legal Help Co connected us with a firm that actually took our case seriously.",
     name: "Monique R.",
     location: "Georgia",
     boxStyle: "w-[320px] h-[300px]",
   },
   {
-    text: "I used hair relaxers for years and never imagined they could be dangerous. I found this site, filled out the form, and now I’m part of a lawsuit that’s bringing attention to the issue.",
+    text: "I used chemical hair relaxers for years. I never knew they could be linked to cancer risks. Because of Legal Help Co, I’m now part of a lawsuit holding companies accountable.",
     name: "Latasha B.",
     location: "Illinois",
     boxStyle: "w-[320px] h-[300px]",
   },
   {
-    text: "My husband worked with pesticides for over a decade. When he was diagnosed with Parkinson’s, I didn’t know what to do. This site pointed us in the right direction when no one else could.",
+    text: "My husband spent years working with herbicides. When he was diagnosed with Parkinson’s, we were overwhelmed. Legal Help Co connected us to lawyers who finally gave us answers.",
     name: "Diane K.",
     location: "Iowa",
     boxStyle: "w-[320px] h-[300px]",
   },
   {
-    text: "I never thought I had a case. I was just sick all the time. They explained everything, connected me to a firm, and now I’m part of a lawsuit getting the help I need.",
+    text: "I didn’t think I had a claim. I was just constantly sick. After reaching out, everything was explained clearly — now I’m part of a mass tort case and finally getting support.",
     name: "Jennifer M.",
     location: "Alabama",
     boxStyle: "w-[320px] h-[300px]",
@@ -65,28 +65,25 @@ export default function TestimonialsSection() {
     return () => clearInterval(interval);
   }, []);
 
-  // Duplicate array to create looping
   const extended = [...testimonials, ...testimonials, ...testimonials];
 
-  // Adjusted width + spacing
-  const cardWidth = 360; // approximate (width + gap)
+  const cardWidth = 360;
   const totalCards = testimonials.length;
   const centerOffset = Math.floor(groupSize / 2);
-  const startIndex = index + totalCards; // keep middle batch visible
+  const startIndex = index + totalCards;
   const visibleStart = startIndex - centerOffset;
   const visibleEnd = startIndex + centerOffset + 1;
 
-  // Get visible cards (3 max)
   const visibleTestimonials = extended.slice(visibleStart, visibleEnd);
 
   return (
     <section className="relative bg-[#f9fafb] py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <p className="text-xs tracking-widest text-gray-500 uppercase mb-3">
-          Hear from people we’ve helped
+          Hear from people we’ve supported
         </p>
         <h2 className="text-3xl md:text-4xl font-bold mb-16 text-gray-900">
-          Real Stories. Real Justice.
+          Real People. Real Legal Help.
         </h2>
 
         <div className="relative flex justify-center items-center">

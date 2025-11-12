@@ -133,7 +133,7 @@ function NavbarContent({
                   ["AFFF Firefighting Case Review", "/casestudy/aFFFFirefightingCaseReview"],
                   ["Roundup Case Review", "/casestudy/roundupCasePage"],
                   ["Depo-Provera Free Case Review", "/casestudy/depoProveraPage"],
-                  ["Hair Relaxers Case Review", "/casestudy/caseReviewPage"],
+                  ["Motor Vehicle Accident", "/casestudy/caseReviewPage"],
                   ["NEC Baby Formula Case Review", "/casestudy/nECBabyFormulaCaseReview"],
                   ["Talcum Powder Case Review", "/casestudy/talcumPowderCaseReview"],
                   ["Institutional Sexual Abuse Case Review", "/casestudy/institutionalAbusePage"],

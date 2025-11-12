@@ -49,16 +49,17 @@ export default function CaseReviewPage() {
             {/* Left Content */}
             <div>
               <span className="text-blue-400 font-semibold text-sm uppercase tracking-wide">
-                Free, No-Obligation Legal Case Review
+                Free, No-Obligation Case Review
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">
-                Motor Vehicle Accident? Legal Help May Be Available
+                Injured in a Vehicle Accident? Legal Options May Be Available
               </h2>
               <p className="mt-4 leading-relaxed text-gray-200 text-sm sm:text-base">
-                Some individuals are seeking legal support after suffering
-                injuries in car, truck, or motorcycle accidents. If you or a
-                loved one has been involved in an accident, you may qualify for
-                a free, no-obligation legal case review.
+                Individuals injured in car, truck, motorcycle, or rideshare
+                collisions may qualify for financial compensation. If the crash
+                resulted in medical bills, lost income, or pain and suffering,
+                you may be entitled to a free legal evaluation — with no
+                upfront cost and no obligation to file.
               </p>
             </div>
 
@@ -198,7 +199,7 @@ export default function CaseReviewPage() {
 
                   <div>
                     <p className="text-sm font-medium text-gray-700">
-                      Was the accident reported to the police?
+                      Was a police report filed?
                     </p>
                     <div className="flex gap-4 mt-2 text-gray-700">
                       <label className="flex items-center gap-2">
@@ -235,9 +236,8 @@ export default function CaseReviewPage() {
                     className="mt-1"
                   />
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                    I consent to receive communications regarding my potential
-                    motor vehicle accident claim. I understand message and data
-                    rates may apply.
+                    By checking the box, you authorize communication regarding
+                    your claim from Legal Help Co and partnering law firms.
                   </p>
                 </div>
 
@@ -253,25 +253,26 @@ export default function CaseReviewPage() {
         </div>
       </section>
 
-      {/* ✅ OTHER SECTIONS (Responsive adjustments only) */}
+      {/* ✅ OTHER SECTIONS */}
       <SectionWrapper
-        title="What’s Happening?"
+        title="Current Legal Investigations"
         image="/MVA1.jpg"
         content={
           <>
             <p className="text-gray-700 mb-4">
-              Legal teams across the U.S. are reviewing cases involving motor
-              vehicle collisions. Claims may focus on:
+              Attorneys are currently reviewing claims related to serious auto
+              collisions. These reviews often look at whether negligence or
+              insurance practices failed to properly compensate victims.
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
-              <li>Driver negligence or distracted driving</li>
-              <li>Poor road conditions or defective auto parts</li>
-              <li>Lack of proper insurance coverage</li>
-              <li>Delayed or denied claims by insurers</li>
+              <li>Distracted or impaired drivers</li>
+              <li>Defective vehicle parts or unsafe roadways</li>
+              <li>Insurance claim denial or delay</li>
+              <li>Medical expenses or job loss from injuries</li>
             </ul>
           </>
         }
-        buttonText="Assess Your Case"
+        buttonText="Check Eligibility"
       />
 
       <SectionWrapper
@@ -281,17 +282,17 @@ export default function CaseReviewPage() {
         content={
           <>
             <p className="text-gray-700 mb-4">
-              You may be eligible for a free case review if:
+              You may qualify for compensation if:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>You were injured in a vehicle accident caused by someone else</li>
-              <li>There were medical expenses or lost income involved</li>
-              <li>You’ve suffered emotional distress or ongoing health issues</li>
-              <li>The accident affected your work, school, or daily life</li>
+              <li>You were injured in a crash involving another driver</li>
+              <li>You required medical treatment or missed work</li>
+              <li>Your insurance claim was delayed, denied, or underpaid</li>
+              <li>You suffered emotional distress or long-term pain</li>
             </ul>
           </>
         }
-        buttonText="Assess Your Case"
+        buttonText="Start Review"
       />
     </main>
   );

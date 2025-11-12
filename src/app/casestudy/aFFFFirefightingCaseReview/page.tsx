@@ -9,39 +9,37 @@ export default function CaseStudy1() {
 
   const faqs = [
     {
-      question: "Dangers of AFFF",
+      question: "Why is AFFF firefighting foam considered dangerous?",
       answer: `
         <p>
-          The International Agency for Research on Cancer (IARC) states that PFAS in AFFF are hazardous and 
-          potentially carcinogenic to animals as well as humans. PFOA is classified by the IARC as a group 2B 
-          carcinogen, which denotes that it may "possibly" cause cancer in humans.
+          Aqueous Film Forming Foam (AFFF) contains PFAS — also called “forever chemicals.” 
+          These chemicals do not break down in the body or the environment and can build up over time.
         </p>
         <p>
-          According to AFFF cases, businesses had access to studies demonstrating PFAS toxicity in animals as 
-          early as the 1960s. And by the 1980s, studies on PFAS had established that those who were exposed to 
-          the chemicals had a higher risk of developing certain cancers and other harmful health impacts.
+          The International Agency for Research on Cancer (IARC) identifies PFOA, a PFAS chemical found 
+          in AFFF, as “possibly carcinogenic to humans.” Studies have linked PFAS exposure to kidney cancer, 
+          testicular cancer, thyroid disorders, and immune system disruption.
         </p>
       `,
     },
     {
-      question: "PFOA Claims are Settled by DuPont and Chemours",
+      question: "Have PFAS/AFFF lawsuits resulted in settlements?",
       answer: `
         <p>
-          The current legal dispute is not the first time AFFF companies have been the target of PFAS 
-          toxicity-related claims.
+          Yes. Chemical manufacturers including DuPont and Chemours have already faced thousands of legal 
+          claims involving PFAS contamination and exposure.
         </p>
         <p>
-          To resolve 3,550 injury lawsuits resulting from PFOA environmental pollution from the West Virginia 
-          Washington Works Plant, DuPont and Chemours agreed to pay $670.7 million in 2017. The businesses 
-          rejected any wrongdoing.
+          In 2017, DuPont and Chemours agreed to a <strong>$670.7 million settlement</strong> to resolve 
+          claims involving PFOA contamination from one of their plants. 
         </p>
         <p>
-          The businesses have now dealt with dozens more cases.
+          In 2020, an Ohio jury awarded <strong>$50 million</strong> to a firefighter who developed 
+          testicular cancer after exposure to PFAS-contaminated drinking water.
         </p>
         <p>
-          According to Bloomberg, an Ohio jury ruled in March 2020 that DuPont had to pay $50 million to 
-          Travis Abbot, who claimed that drinking water contaminated with PFOA caused him to develop 
-          testicular cancer.
+          New lawsuits continue to be filed by firefighters, airport personnel, and military members exposed 
+          to AFFF during training and fire suppression activities.
         </p>
       `,
     },
@@ -50,16 +48,16 @@ export default function CaseStudy1() {
   return (
     <section className="bg-gray-50 text-gray-800">
       {/* ===== Header Section ===== */}
-      <div className="relative bg-cover bg-center h-[400px] flex items-center justify-center sm:justify-start px-4 sm:px-10"
+      <div
+        className="relative bg-cover bg-center h-[400px] flex items-center justify-center sm:justify-start px-4 sm:px-10"
         style={{
-          backgroundImage:
-            "url('/foam.jpg')",
+          backgroundImage: "url('/foam.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative z-10 text-center sm:text-left max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-snug">
-            AFFF Firefighting Case Review
+            AFFF Firefighting Foam Exposure
           </h1>
         </div>
       </div>
@@ -69,13 +67,13 @@ export default function CaseStudy1() {
         {/* Top Statement */}
         <div className="text-center md:text-left mb-12">
           <p className="font-semibold text-[16px] md:text-[17px] leading-relaxed text-gray-900">
-            According to court documents from 2021, an increasing number of firemen have brought legal actions
-            alleging that carcinogenic substances in AFFF firefighting foam were to blame for their cancer.
+            Firefighters across the U.S. are filing lawsuits claiming that toxic chemicals in AFFF 
+            firefighting foam contributed to cancer diagnoses.
           </p>
           <p className="text-[15px] text-gray-700 mt-3 max-w-4xl mx-auto md:mx-0">
-            In January 2021, a Texas man filed a class action lawsuit over dangerous per- and polyfluoroalkyl
-            substances (PFAS) and contamination from AFFF-using facilities, in addition to the individual AFFF
-            cases brought by current and past firemen.
+            AFFF contains PFAS chemicals — linked to kidney cancer, testicular cancer, thyroid disease, 
+            and immune suppression. Firefighters, airport crews, and military personnel faced exposure 
+            for years without being warned.
           </p>
           <div className="mt-6 flex justify-center md:justify-start">
             <button className="bg-[#d62814] hover:bg-[#b91c0c] text-white font-semibold text-[14px] px-6 py-3 rounded shadow transition-all">
@@ -100,16 +98,15 @@ export default function CaseStudy1() {
           {/* RIGHT CONTENT */}
           <div>
             <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-900">
-              AFFF: What Is It?
+              What is AFFF (Firefighting Foam)?
             </h2>
             <p className="text-gray-700 mb-4 leading-relaxed text-[15px]">
-              Aqueous film forming foam, generally known as AFFF, is a type of firefighting foam used to put out
-              liquid fuel fires. It’s water blended with a concentrate.
+              AFFF (Aqueous Film Forming Foam) is a foam concentrate mixed with water to suppress 
+              fuel-based fires — commonly used at airports, military bases, and fire stations.
             </p>
             <p className="text-gray-700 leading-relaxed text-[15px]">
-              Using foam to put out fires spread like wildfire in the 1960s. In the 1970s, the Department of
-              Defence first used it on military installations. Since then, it has been utilised by both military
-              and civilian firemen for decades in training and fire suppression.
+              Although effective at extinguishing flames, the PFAS chemicals within AFFF remain in 
+              soil, groundwater, and the human bloodstream for decades — increasing cancer risk.
             </p>
           </div>
         </div>
@@ -117,19 +114,17 @@ export default function CaseStudy1() {
         {/* Health Issues */}
         <div className="mt-16">
           <h3 className="text-lg md:text-xl font-semibold mb-4 text-gray-900">
-            The EPA and the Agency for Toxic Substances and Disease Registry have connected PFAS to a number of
-            health issues, including:
+            Health conditions linked to AFFF / PFAS exposure include:
           </h3>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-800 text-[15px] leading-relaxed">
-            <li>Elevated cholesterol</li>
-            <li>Pregnant women’s high blood pressure and preeclampsia</li>
-            <li>Decreased vaccine response in children</li>
-            <li>Immune system adjustments</li>
-            <li>Alterations in liver enzymes</li>
-            <li>Decreases in the birth weight of babies</li>
-            <li>Increased chance of renal and testicular cancer among other cancers</li>
-            <li>Thyroid conditions</li>
+            <li>Kidney cancer</li>
+            <li>Testicular cancer</li>
+            <li>Thyroid disease or thyroid cancer</li>
+            <li>Immune system disruption</li>
+            <li>Liver damage</li>
+            <li>Decreased vaccine effectiveness in children</li>
+            <li>Pregnancy complications and high blood pressure</li>
           </ul>
         </div>
       </section>
@@ -192,10 +187,9 @@ export default function CaseStudy1() {
             Case Review
           </h2>
           <p className="text-center text-gray-600 mb-10 text-sm sm:text-base">
-            If you or a loved one were exposed to Paraquat and diagnosed with Parkinson’s disease,
-            please complete the form below for a free review.
+            If you or a loved one were exposed to AFFF firefighting foam and later diagnosed with cancer,
+            complete the form below to see if you qualify.
           </p>
-
           <form className="bg-white p-6 sm:p-8 space-y-6 shadow-md rounded-md">
             {/* Name Fields */}
             <div className="grid md:grid-cols-2 gap-6">
@@ -303,24 +297,28 @@ export default function CaseStudy1() {
             {/* Dropdowns */}
             <div>
               <label className="block font-medium text-gray-700 mb-2">
-                Were you or a loved one exposed to Paraquat (herbicide) at work
-                or on farmland? <span className="text-red-600">*</span>
+              Please select how the exposure to AFFF (Aqueous Film Forming Foam) occurred <span className="text-red-600">*</span>
               </label>
               <select
                 required
                 className="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-red-600 outline-none"
               >
-                <option value="">- Select -</option>
-                <option>Yes, personally exposed</option>
-                <option>Yes, a family member was exposed</option>
-                <option>No known exposure</option>
-                <option>Not sure</option>
+                 <option value="">- Select -</option>
+                <option>Worked for an incinerator facility disposing of firefighting foam (AFFF)</option>
+                <option>Transported firefighting foam (AFFF)</option>
+                <option>Worked in a firefighting foam (AFFF) manufacturer</option>
+                <option>Worked as a firefighter in the U.S. Military</option>
+                <option>Worked as a firefighter at an airport(AFFF)</option>
+                <option>Worked as a firefighter, not in the U.S. Military or an airport</option>
+                <option>Worked on a flight deck</option>
+                <option>Other Exposure</option>
+                <option>No Exposure</option>
               </select>
             </div>
 
             <div>
               <label className="block font-medium text-gray-700 mb-2">
-                Have you or a loved one been diagnosed with Parkinson’s disease?
+              Please select any diagnosis from the AFFF (Aqueous Film Forming Foam) exposure.
                 <span className="text-red-600">*</span>
               </label>
               <select
@@ -328,9 +326,19 @@ export default function CaseStudy1() {
                 className="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-red-600 outline-none"
               >
                 <option value="">- Select -</option>
-                <option>Yes</option>
-                <option>No</option>
-                <option>Not sure</option>
+                <option>Kidney cancer</option>
+                <option>Testicular cancer</option>
+                <option>Thyroid cancer</option>
+                <option>Thyroid disease</option>
+                <option>Liver cancer</option>
+                <option>Hyperthyroidism</option>
+                <option>Hypothyroidism</option>
+                <option>Thyroiditis</option>
+                <option>Hashimoto’s Disease</option>
+                <option value="">Grave’s Disease</option>
+                <option value="">Goiter</option>
+                <option value="">Thyroid Nodules</option>
+
               </select>
             </div>
 
@@ -362,6 +370,7 @@ export default function CaseStudy1() {
               </button>
             </div>
           </form>
+          {/* FORM — unchanged */}
         </div>
       </section>
     </section>

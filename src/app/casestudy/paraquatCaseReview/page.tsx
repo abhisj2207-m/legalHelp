@@ -8,21 +8,22 @@ export default function CaseStudy1() {
 
   const faqs = [
     {
-      question: "Dangers of AFFF",
+      question: "Why is Paraquat dangerous?",
       answer:
-        "Firefighting foam (AFFF) contains PFAS chemicals — known as 'forever chemicals' — which can accumulate in the body and the environment. Studies have linked AFFF exposure to increased risks of certain cancers, thyroid disorders, and immune system issues.",
+        "Paraquat is a highly toxic herbicide. Even small exposure can be harmful — and long-term exposure has been linked to Parkinson’s disease, nerve damage, and serious respiratory issues. Many affected workers did not know the risk.",
     },
     {
-      question: "PFQA Claims are Settled by DuPont and Chemours",
+      question: "Have companies settled Paraquat lawsuits?",
       answer:
-        "Several manufacturers of AFFF, including DuPont and Chemours, have faced lawsuits over PFAS contamination. These companies have agreed to pay millions in settlements for communities and individuals affected by toxic exposure.",
+        "Manufacturers of Paraquat have faced thousands of lawsuits. Several companies, including Syngenta and Chevron, have reached large settlement agreements with individuals and communities impacted by Paraquat exposure.",
     },
   ];
 
   return (
     <section className="bg-gray-50 text-gray-800">
       {/* ===== HEADER SECTION ===== */}
-      <div className="relative bg-cover bg-center h-[400px] flex items-center justify-center sm:justify-start px-6 sm:px-12"
+      <div
+        className="relative bg-cover bg-center h-[400px] flex items-center justify-center sm:justify-start px-6 sm:px-12"
         style={{
           backgroundImage:
             "url('https://findthefirm.com/wp-content/uploads/2022/10/iStock-1207411602-1.jpg')",
@@ -31,7 +32,7 @@ export default function CaseStudy1() {
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative z-10 text-center sm:text-left max-w-2xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-snug">
-            Paraquat Case Review
+            Paraquat Pesticide Exposure
           </h1>
         </div>
       </div>
@@ -53,17 +54,17 @@ export default function CaseStudy1() {
           {/* RIGHT CONTENT */}
           <div>
             <h2 className="text-xl md:text-2xl font-semibold text-[#2d2d2d] mb-4">
-              Who Can File a Paraquat Lawsuit?
+              Who Can Qualify for a Paraquat Lawsuit?
             </h2>
             <p className="text-gray-700 leading-relaxed mb-4 text-[15px]">
-              Anyone who has been exposed to paraquat and has developed
-              Parkinson’s disease may decide to file a claim, but the only way
-              to know for sure is to speak with a lawyer.
+              Long-term exposure to Paraquat has been linked to Parkinson’s
+              disease — especially among farm workers, licensed applicators,
+              landscapers, and people living near spraying sites.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6 text-[15px]">
-              Although some types of paraquat exposure are more difficult to
-              detect than others, a skilled lawyer can assist you in proving
-              your case.
+              If you or a loved one were around Paraquat and later developed
+              Parkinson’s, you may qualify to join an ongoing mass tort lawsuit.
+              Speaking with an attorney is the best way to verify eligibility.
             </p>
 
             <button className="bg-[#d62814] text-white font-semibold text-[14px] px-6 py-3 rounded shadow-md hover:bg-[#b91c0c] transition-all w-full sm:w-auto">
@@ -75,22 +76,23 @@ export default function CaseStudy1() {
         {/* BOTTOM TEXT SECTION */}
         <div className="mt-12">
           <h3 className="text-lg md:text-xl font-semibold text-[#2d2d2d] mb-4">
-            People who may qualify to file a paraquat lawsuit include:
+            You may qualify if any of these apply:
           </h3>
 
           <ul className="space-y-3 text-gray-800 text-[15px] leading-relaxed">
             <li className="flex items-start">
               <span className="text-[#d62814] mr-2 text-lg leading-[1]">✔</span>
-              Agricultural workers including farmers, licensed paraquat
-              applicators, growers, pickers, and landscapers.
+              Farmers, agricultural workers, crop dusters, and licensed
+              Paraquat applicators.
             </li>
             <li className="flex items-start">
               <span className="text-[#d62814] mr-2 text-lg leading-[1]">✔</span>
-              People who live near farmland sprayed with paraquat.
+              People living or working near farmland where Paraquat was sprayed.
             </li>
             <li className="flex items-start">
               <span className="text-[#d62814] mr-2 text-lg leading-[1]">✔</span>
-              Anyone who works around commercial weed killers and pesticides.
+              Anyone who worked around commercial herbicides and later developed
+              Parkinson’s disease.
             </li>
           </ul>
         </div>
@@ -100,14 +102,15 @@ export default function CaseStudy1() {
       <section className="bg-white py-12 sm:py-16" id="review-form">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-3 sm:mb-4">
-            Case Review
+            Free Paraquat Case Evaluation
           </h2>
           <p className="text-center text-gray-600 mb-8 sm:mb-10 text-sm sm:text-base px-2 sm:px-12">
-            If you or a loved one were exposed to Paraquat and diagnosed with
-            Parkinson’s disease, please complete the form below for a free
-            review.
+            If you or a loved one were exposed to Paraquat and later diagnosed
+            with Parkinson’s disease, complete the form below to see if you
+            qualify for compensation.
           </p>
 
+          {/* --- FORM START --- */}
           <form className="bg-white shadow-md rounded-md p-6 sm:p-8 space-y-6">
             {/* Name Fields */}
             <div className="grid sm:grid-cols-2 gap-6">
@@ -212,11 +215,11 @@ export default function CaseStudy1() {
               </div>
             </div>
 
-            {/* Dropdown Questions */}
+            {/* Exposure Dropdown */}
             <div>
               <label className="block font-medium text-gray-700 mb-2">
                 Were you or a loved one exposed to Paraquat (herbicide) at work
-                or on farmland? <span className="text-red-600">*</span>
+                or near farmland? <span className="text-red-600">*</span>
               </label>
               <select
                 required
@@ -230,6 +233,7 @@ export default function CaseStudy1() {
               </select>
             </div>
 
+            {/* Diagnosis Dropdown */}
             <div>
               <label className="block font-medium text-gray-700 mb-2">
                 Have you or a loved one been diagnosed with Parkinson’s disease?{" "}
