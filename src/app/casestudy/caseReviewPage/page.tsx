@@ -1,11 +1,10 @@
 "use client";
 
-import { checkIsOnDemandRevalidate } from "next/dist/server/api-utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function RobloxAbusePage() {
+export default function CaseReviewPage() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,57 +22,54 @@ export default function RobloxAbusePage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, type } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
-    });
+    const { name, type, value, checked } = e.target as HTMLInputElement;
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Form submitted:", formData);
     alert("Form submitted successfully!");
   };
 
   return (
     <main className="bg-white text-slate-800">
-      {/* ===== CASE REVIEW HERO ===== */}
+      {/* ✅ CASE REVIEW SECTION */}
       <section
         id="case-review"
         className="relative w-full py-20 overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/8th.png')",
+          backgroundImage: "url('/anthony-maw-XcjVef6uvYA-unsplash-1.jpg')",
         }}
       >
-        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* Content */}
-        <div className="relative container mx-auto px-4 sm:px-8 lg:px-40 z-10">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center text-white">
-            {/* Left Text */}
-            <div className="relative max-w-md">
-              <p className="text-blue-400 uppercase tracking-wide text-sm font-semibold mb-2">
-                Free, Confidential Case Review
-              </p>
-              <h1 className="text-3xl sm:text-4xl font-bold leading-snug">
-                Roblox Abuse Lawsuit Investigation
-              </h1>
-              <p className="text-gray-200 mt-4 leading-relaxed">
-                Families nationwide are exploring legal action after reports of
-                children being exploited or abused through Roblox. If your child
-                has been harmed, you may qualify for a free, no-obligation legal
-                consultation.
+        <div className="relative container mx-auto px-6 sm:px-10 lg:px-40 z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-white">
+            {/* Left Content */}
+            <div>
+              <span className="text-blue-400 font-semibold text-sm uppercase tracking-wide">
+                Free, No-Obligation Legal Case Review
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-3">
+                Motor Vehicle Accident? Legal Help May Be Available
+              </h2>
+              <p className="mt-4 leading-relaxed text-gray-200 text-sm sm:text-base">
+                Some individuals are seeking legal support after suffering
+                injuries in car, truck, or motorcycle accidents. If you or a
+                loved one has been involved in an accident, you may qualify for
+                a free, no-obligation legal case review.
               </p>
             </div>
 
             {/* Right Form */}
             <div className="bg-white text-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100">
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Name Fields */}
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium">First Name</label>
+                    <label className="block text-sm font-medium">
+                      First Name
+                    </label>
                     <input
                       name="firstName"
                       value={formData.firstName}
@@ -83,7 +79,9 @@ export default function RobloxAbusePage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium">Last Name</label>
+                    <label className="block text-sm font-medium">
+                      Last Name
+                    </label>
                     <input
                       name="lastName"
                       value={formData.lastName}
@@ -94,7 +92,6 @@ export default function RobloxAbusePage() {
                   </div>
                 </div>
 
-                {/* Email */}
                 <div>
                   <label className="block text-sm font-medium">Email</label>
                   <input
@@ -107,9 +104,10 @@ export default function RobloxAbusePage() {
                   />
                 </div>
 
-                {/* Phone */}
                 <div>
-                  <label className="block text-sm font-medium">Phone/Mobile</label>
+                  <label className="block text-sm font-medium">
+                    Phone/Mobile
+                  </label>
                   <input
                     type="tel"
                     name="phone"
@@ -120,8 +118,7 @@ export default function RobloxAbusePage() {
                   />
                 </div>
 
-                {/* Address */}
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium">Address</label>
                     <input
@@ -144,7 +141,7 @@ export default function RobloxAbusePage() {
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium">State</label>
                     <input
@@ -156,7 +153,9 @@ export default function RobloxAbusePage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium">Zip Code</label>
+                    <label className="block text-sm font-medium">
+                      Zip Code
+                    </label>
                     <input
                       name="zip"
                       placeholder="Zip code"
@@ -168,10 +167,10 @@ export default function RobloxAbusePage() {
                 </div>
 
                 {/* Radios */}
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <p className="text-sm font-medium text-gray-700">
-                      Was the incident within the last 2 years?
+                      Was the accident within the last 2 years?
                     </p>
                     <div className="flex gap-4 mt-2 text-gray-700">
                       <label className="flex items-center gap-2">
@@ -196,9 +195,10 @@ export default function RobloxAbusePage() {
                       </label>
                     </div>
                   </div>
+
                   <div>
                     <p className="text-sm font-medium text-gray-700">
-                      Was it reported to authorities?
+                      Was the accident reported to the police?
                     </p>
                     <div className="flex gap-4 mt-2 text-gray-700">
                       <label className="flex items-center gap-2">
@@ -234,13 +234,13 @@ export default function RobloxAbusePage() {
                     onChange={handleChange}
                     className="mt-1"
                   />
-                  <p className="text-xs text-gray-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                     I consent to receive communications regarding my potential
-                    Roblox-related case. Message & data rates may apply.
+                    motor vehicle accident claim. I understand message and data
+                    rates may apply.
                   </p>
                 </div>
 
-                {/* Submit */}
                 <button
                   type="submit"
                   className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
@@ -253,139 +253,105 @@ export default function RobloxAbusePage() {
         </div>
       </section>
 
-      {/* ===== HERO SECTION ===== */}
-      <section className="py-16 px-4 sm:px-10 lg:px-40 bg-gray-50 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Is Your Child a Victim of Roblox-Related Abuse?
-          </h2>
-          <p className="text-gray-700 mt-5 leading-relaxed">
-            Roblox is one of the most popular online gaming platforms for
-            children and teens. Unfortunately, predators have used it to groom,
-            exploit, and harm children in real life.
-          </p>
-          <p className="text-gray-700 mt-3 font-medium">
-            You may qualify for legal help if your child was harmed through
-            Roblox-related interactions.
-          </p>
-        </div>
-      </section>
-
-      {/* ===== WHAT’S HAPPENING ===== */}
-      <SectionImageLeft
+      {/* ✅ OTHER SECTIONS (Responsive adjustments only) */}
+      <SectionWrapper
         title="What’s Happening?"
-        image="https://findthefirm.com/wp-content/uploads/2025/08/roblox-abuse-2-1024x831.png"
-        points={[
-          "Meet and groom children for exploitation.",
-          "Sextortion involving explicit content or payments.",
-          "Online grooming escalating to in-person assault.",
-          "Exposure to inappropriate or sexual material.",
-        ]}
+        image="/MVA1.jpg"
+        content={
+          <>
+            <p className="text-gray-700 mb-4">
+              Legal teams across the U.S. are reviewing cases involving motor
+              vehicle collisions. Claims may focus on:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-1">
+              <li>Driver negligence or distracted driving</li>
+              <li>Poor road conditions or defective auto parts</li>
+              <li>Lack of proper insurance coverage</li>
+              <li>Delayed or denied claims by insurers</li>
+            </ul>
+          </>
+        }
+        buttonText="Assess Your Case"
       />
 
-      {/* ===== WHO MAY QUALIFY ===== */}
-      <SectionImageRight
+      <SectionWrapper
         title="Who May Qualify?"
-        image="https://findthefirm.com/wp-content/uploads/2025/08/roblox-abuse-3.png"
+        image="/usman-malik-cbXfPEOc1-k-unsplash-1024x683.jpg"
+        reverse
+        content={
+          <>
+            <p className="text-gray-700 mb-4">
+              You may be eligible for a free case review if:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li>You were injured in a vehicle accident caused by someone else</li>
+              <li>There were medical expenses or lost income involved</li>
+              <li>You’ve suffered emotional distress or ongoing health issues</li>
+              <li>The accident affected your work, school, or daily life</li>
+            </ul>
+          </>
+        }
+        buttonText="Assess Your Case"
       />
-
-      {/* ===== CONFIDENTIAL NOTICE ===== */}
-      <section className="py-12 px-4 sm:px-10 lg:px-40 bg-gray-100 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900">
-            100% Confidential | Free Consultation
-          </h2>
-          <p className="text-gray-700 mt-3">
-            If your child experienced any of the above, you may qualify for a
-            free, confidential legal consultation.
-          </p>
-        </div>
-      </section>
-
-      {/* ===== DISCLAIMER ===== */}
-      <section className="py-12 px-4 sm:px-10 lg:px-40 bg-gray-50 text-center text-gray-700 text-sm">
-        <div className="max-w-4xl mx-auto space-y-3">
-          <p className="font-semibold">Important Legal Notice</p>
-          <p>
-            Attorney advertisement. This page is for informational purposes only
-            and does not constitute legal advice. No attorney-client relationship
-            is formed by submitting this form. Prior results do not guarantee
-            similar outcomes. Services are provided by licensed attorneys.
-          </p>
-        </div>
-      </section>
     </main>
   );
 }
 
-/* ===== Reusable Image/Text Sections ===== */
-interface SectionImageLeftProps {
+/* ✅ Reusable Section Wrapper */
+function SectionWrapper({
+  title,
+  image,
+  content,
+  buttonText,
+  reverse = false,
+}: {
   title: string;
   image: string;
-  points: string[];
-}
-function SectionImageLeft({ title, image, points }: SectionImageLeftProps) {
+  content: React.ReactNode;
+  buttonText: string;
+  reverse?: boolean;
+}) {
   return (
-    <section className="py-16 px-4 sm:px-10 lg:px-40 bg-white">
-      <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
-        <Image
-          src={image}
-          alt={title}
-          width={1024}
-          height={831}
-          className="rounded-lg shadow-lg object-cover w-full"
-        />
-        <div>
-          <p className="text-blue-600 font-semibold mb-2 text-sm uppercase">
-            {title}
-          </p>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
-            {points.map((p: string, i: number) => (
-              <li key={i}>{p}</li>
-            ))}
-          </ul>
-          <Link
-            href="#case-review"
-            className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition"
-          >
-            Assess Your Case
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
+    <section className="py-16 px-6 sm:px-10 lg:px-40 bg-white">
+      <div
+        className={`container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${
+          reverse ? "md:flex-row-reverse" : ""
+        }`}
+      >
+        {!reverse && (
+          <Image
+            src={image}
+            alt={title}
+            width={800}
+            height={500}
+            className="rounded-lg shadow-lg object-cover"
+          />
+        )}
 
-interface SectionImageRightProps {
-  title: string;
-  image: string;
-}
-function SectionImageRight({ title, image }: SectionImageRightProps) {
-  return (
-    <section className="py-16 px-4 sm:px-10 lg:px-40 bg-gray-50">
-      <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
         <div>
           <p className="text-blue-600 font-semibold mb-2 text-sm uppercase">
             {title}
           </p>
-          <p className="text-gray-700 mb-4">
-            Children who were abused after connecting with predators on Roblox
-            may qualify for a legal review.
-          </p>
+          <div className="text-sm sm:text-base">{content}</div>
           <Link
-            href="#case-review"
+            href="/contact"
             className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition"
           >
-            Free Case Review
+            {buttonText}
           </Link>
         </div>
-        <Image
-          src={image}
-          alt={title}
-          width={640}
-          height={411}
-          className="rounded-lg shadow-lg object-cover w-full"
-        />
+
+        {reverse && (
+          <div className="flex justify-center">
+            <Image
+              src={image}
+              alt={title}
+              width={800}
+              height={500}
+              className="rounded-lg shadow-lg object-cover"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

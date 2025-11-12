@@ -64,7 +64,7 @@ export default function FAQPreview() {
       {/* LEFT IMAGE */}
       <div className="overflow-hidden mt-4 md:mt-[50px]">
         <img
-          src="https://findthefirm.com/wp-content/uploads/2021/10/Advisory-Board-header.jpg"
+          src="/faq.jpg"
           alt="FAQ Discussion"
           className="w-full h-auto object-cover rounded-lg shadow-md"
         />

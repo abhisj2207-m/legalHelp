@@ -2,6 +2,8 @@
 
 import { checkIsOnDemandRevalidate } from "next/dist/server/api-utils";
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function InstitutionalAbusePage() {
   const [formData, setFormData] = useState({
@@ -41,7 +43,7 @@ export default function InstitutionalAbusePage() {
         id="case-review"
         className="relative w-full py-20 overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/8th.png')",
+          backgroundImage: "url('/abuse.jpg')",
         }}
       >
         {/* Overlay */}
@@ -274,30 +276,34 @@ export default function InstitutionalAbusePage() {
         </div>
 
         {/* Alternating Image Sections */}
-        {sections.map((section, i) => (
-          <div
-            key={i}
-            className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${
-              i % 2 ? "md:flex-row-reverse" : ""
-            }`}
-          >
-            <img
-              src={section.image}
-              alt={section.title}
-              className="rounded-lg shadow-lg w-full object-cover"
-            />
-            <div>
-              <h3 className="text-2xl font-semibold mb-4">{section.title}</h3>
-              <div dangerouslySetInnerHTML={{ __html: section.content }} />
-              <a
-                href="#case-review"
-                className="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-semibold"
-              >
-                Assess Your Case
-              </a>
+        {sections.map((section, i) => {
+          // Sections 1 and 3 (index 1 and 3) should have image on right on desktop
+          const imageOnRight = i === 1 || i === 3;
+          return (
+            <div
+              key={i}
+              className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+            >
+              <img
+                src={section.image}
+                alt={section.title}
+                className={`rounded-lg shadow-lg w-full object-cover ${
+                  imageOnRight ? "md:order-2" : ""
+                }`}
+              />
+              <div className={imageOnRight ? "md:order-1" : ""}>
+                <h3 className="text-2xl font-semibold mb-4">{section.title}</h3>
+                <div dangerouslySetInnerHTML={{ __html: section.content }} />
+                <Link
+                  href="/contact"
+                  className="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-semibold"
+                >
+                  Assess Your Case
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         {/* Legal Notice */}
         <div className="text-center text-gray-600 border-t pt-8">
@@ -317,7 +323,7 @@ export default function InstitutionalAbusePage() {
 const sections = [
   {
     title: "What’s Happening",
-    image: "https://findthefirm.com/wp-content/uploads/2025/10/download.webp",
+    image: "/a1.jpg",
     content: `
       <p>Investigations have identified systemic abuse in several institutions:</p>
       <ul class="list-disc list-inside space-y-2 mt-2">
@@ -329,7 +335,7 @@ const sections = [
   },
   {
     title: "Reports Include",
-    image: "https://findthefirm.com/wp-content/uploads/2025/10/download1.webp",
+    image: "/a2.jpg",
     content: `
       <ul class="list-disc list-inside space-y-2">
         <li><strong>Sexual Assault and Rape</strong> – Forced acts by authority figures.</li>
@@ -342,7 +348,7 @@ const sections = [
   {
     title: "Who May Qualify",
     image:
-      "https://findthefirm.com/wp-content/uploads/2025/10/LingeringEffectsSexualTraumaxGettyImages-1329102109-1120x640-1-1024x585.jpg",
+      "/a3.jpg",
     content: `
       <p>You may be eligible for a <strong>free, confidential case review</strong> if you or your loved one experienced abuse in:</p>
       <ul class="list-disc list-inside mt-2 space-y-1">
@@ -355,7 +361,7 @@ const sections = [
   {
     title: "What You’ll Receive",
     image:
-      "https://findthefirm.com/wp-content/uploads/2025/10/what-is-my-sexual-assault-case-worth.tmb-cfthumb-1024x683.webp",
+      "/a4.jpg",
     content: `
       <ul class="list-disc list-inside space-y-2">
         <li><strong>Free Legal Consultation:</strong> No cost to review your claim.</li>

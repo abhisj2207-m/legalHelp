@@ -53,7 +53,7 @@ export default function CaseStudy1() {
       <div className="relative bg-cover bg-center h-[400px] flex items-center justify-center sm:justify-start px-4 sm:px-10"
         style={{
           backgroundImage:
-            "url('https://findthefirm.com/wp-content/uploads/2023/05/AFFF-PFOS.jpg')",
+            "url('/foam.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
@@ -89,7 +89,7 @@ export default function CaseStudy1() {
           {/* LEFT IMAGE */}
           <div>
             <Image
-              src="https://findthefirm.com/wp-content/uploads/2023/05/AFFF-PFOS.jpg"
+              src="/foam.jpg"
               alt="Firefighting Foam"
               width={800}
               height={600}

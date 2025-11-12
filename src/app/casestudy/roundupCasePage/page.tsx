@@ -111,7 +111,12 @@ export default function RoundupCasePage() {
   return (
     <main className="text-slate-800 bg-white">
       {/* ===== HERO HEADER ===== */}
-      <div className="relative bg-cover bg-center h-[300px] sm:h-[400px] flex items-center justify-center">
+      <div 
+        className="relative bg-cover bg-center h-[300px] sm:h-[400px] flex items-center justify-center"
+        style={{
+          backgroundImage: "url('/roundup3.jpg')",
+        }}
+      >
         <div className="bg-black/60 absolute inset-0"></div>
         <div className="relative z-10 text-center px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
@@ -145,7 +150,7 @@ export default function RoundupCasePage() {
 
           <div className="flex justify-center">
             <Image
-              src="/images/roundup3.jpg"
+              src="/roundup3.jpg"
               alt="Roundup"
               className="w-full max-w-sm sm:max-w-md md:max-w-lg rounded shadow"
               width={500}
@@ -160,7 +165,7 @@ export default function RoundupCasePage() {
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">
             <Image
-              src="/images/roundup2.webp"
+              src="/weed.jpg"
               alt="Roundup bottle"
               className="w-full max-w-sm sm:max-w-md md:max-w-lg rounded shadow"
               width={500}
@@ -210,7 +215,7 @@ export default function RoundupCasePage() {
 
           <div className="flex justify-center">
             <Image
-              src="/images/roundup4.jpg"
+              src="/roundup3.webp"
               alt="Roundup exposure"
               className="w-full max-w-sm sm:max-w-md md:max-w-lg rounded shadow"
               width={500}

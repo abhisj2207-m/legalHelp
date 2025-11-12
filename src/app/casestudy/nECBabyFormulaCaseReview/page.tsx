@@ -10,7 +10,7 @@ export default function BabyFormulaPage() {
         className="relative bg-cover bg-center h-[300px] sm:h-[350px] md:h-[400px] flex items-center justify-center sm:justify-start px-4 sm:px-10"
         style={{
           backgroundImage:
-            "url('https://findthefirm.com/wp-content/uploads/2022/10/necrotizing-enterocolitis-lawsuit-similac-1072x675-1.jpg')",
+            "url('/necrotizing-enterocolitis-lawsuit-similac-1072x675-1.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
@@ -26,7 +26,7 @@ export default function BabyFormulaPage() {
         {/* LEFT IMAGE */}
         <div>
           <Image
-            src="https://findthefirm.com/wp-content/uploads/2022/10/necrotizing-enterocolitis-lawsuit-similac-1072x675-1.jpg"
+            src="/necrotizing-enterocolitis-lawsuit-similac-1072x675-1.jpg"
             alt="Baby Formula Lawsuit"
             width={800}
             height={600}

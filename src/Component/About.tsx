@@ -28,7 +28,7 @@ export default function AboutPage() {
               be entitled to compensation.
             </p>
             <a
-              href="#active-cases"
+              href="/contact"
               className="inline-block bg-[#e63946] text-white font-semibold px-6 py-3  hover:bg-[#c72d39] transition"
             >
               Start My Free Case Review
@@ -38,7 +38,7 @@ export default function AboutPage() {
           {/* Image Section */}
           <div className="flex justify-center">
             <Image
-              src="https://findthefirm.com/wp-content/uploads/2021/10/Advisory-Board-header.jpg"
+              src="/Advisory-Board-header.jpg"
               alt="Consultation"
               width={644}
               height={430}
@@ -52,7 +52,7 @@ export default function AboutPage() {
           {/* Image Section */}
           <div className="flex justify-center order-1 md:order-none">
             <Image
-              src="https://findthefirm.com/wp-content/uploads/2021/10/Advisory-Board-header.jpg"
+              src="/Advisory-Board-header1.jpg"
               alt="Legal Discussion"
               width={644}
               height={430}

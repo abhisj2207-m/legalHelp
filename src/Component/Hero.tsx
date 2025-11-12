@@ -51,7 +51,7 @@ export default function HeroSection() {
     setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   useEffect(() => {
-    const interval = setInterval(next, 6000);
+    const interval = setInterval(next, 7000);
     return () => clearInterval(interval);
   }, []);
 
@@ -66,7 +66,7 @@ export default function HeroSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
-              duration: 1.4,
+              duration: 1.0,
               ease: "easeInOut",
             }}
             className="absolute inset-0 bg-cover bg-center will-change-transform"

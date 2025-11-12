@@ -101,15 +101,15 @@ export default function Footer({
                 className="absolute left-0 mt-3 bg-white shadow-xl border border-gray-100 rounded-md w-64 py-2 z-50"
               >
                 {[
-                  ["Paraquat Case Review", "/casestudy/cs1"],
-                  ["AFFF Firefighting Case Review", "/casestudy/cs2"],
-                  ["NEC Baby Formula Case Review", "/casestudy/cs3"],
-                  ["Talcum Powder Case Review", "/casestudy/cs4"],
-                  ["Roundup Case Review", "/casestudy/cs5"],
-                  ["Depo-Provera Free Case Review", "/casestudy/cs6"],
-                  ["No-Cost MVA Case Evaluation", "/casestudy/cs7"],
-                  ["Roblox Abuse Lawsuit", "/casestudy/cs8"],
-                  ["Institutional Sexual Abuse Case Review", "/casestudy/cs9"],
+                  ["Paraquat Case Review", "/casestudy/paraquatCaseReview"],
+                  ["AFFF Firefighting Case Review", "/casestudy/aFFFFirefightingCaseReview"],
+                  ["Roundup Case Review", "/casestudy/roundupCasePage"],
+                  ["Depo-Provera Free Case Review", "/casestudy/depoProveraPage"],
+                  ["Hair Relaxers Case Review", "/casestudy/caseReviewPage"],
+                  ["NEC Baby Formula Case Review", "/casestudy/nECBabyFormulaCaseReview"],
+                  ["Talcum Powder Case Review", "/casestudy/talcumPowderCaseReview"],
+                  ["Institutional Sexual Abuse Case Review", "/casestudy/institutionalAbusePage"],
+                  ["Roblox Abuse Lawsuit", "/casestudy/robloxAbusePage"],
                 ].map(([label, href]) => (
                   <motion.li
                     key={href}

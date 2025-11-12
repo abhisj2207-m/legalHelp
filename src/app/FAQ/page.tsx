@@ -77,7 +77,7 @@ export default function FAQPage() {
         className="relative flex items-center justify-center bg-center bg-cover h-[280px] sm:h-[320px] md:h-[350px]"
         style={{
           backgroundImage:
-            "url('https://findthefirm.com/wp-content/uploads/2020/12/pheader-service.jpg')",
+            "url('/pheader-service.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/20"></div>

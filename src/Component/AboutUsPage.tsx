@@ -10,7 +10,7 @@ export default function AboutUs() {
         className="page-header flex items-center justify-center bg-cover bg-center h-[250px] sm:h-[300px] md:h-[400px]"
         style={{
           backgroundImage:
-            "url('https://findthefirm.com/wp-content/uploads/2020/12/pheader-about-us.jpg')",
+            "url('/handshake.jpg')",
         }}
       >
         <div className="container mx-auto text-center px-4">
@@ -25,7 +25,7 @@ export default function AboutUs() {
         <div className="container mx-auto px-6 sm:px-10 md:px-16 lg:px-24 grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">
             <Image
-              src="https://findthefirm.com/wp-content/uploads/2020/12/image1-about-us.jpg"
+              src="/Advisory-Board-header1.jpg"
               alt="About Us"
               width={630}
               height={475}
@@ -83,7 +83,7 @@ export default function AboutUs() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="https://findthefirm.com/wp-content/uploads/2020/12/image1-about-us.jpg"
+              src="/Advisory-Board-header.jpg"
               alt="Why We Started"
               width={630}
               height={475}
@@ -138,7 +138,7 @@ export default function AboutUs() {
         <div className="container mx-auto px-6 sm:px-10 md:px-16 lg:px-24 grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">
             <Image
-              src="https://findthefirm.com/wp-content/uploads/2020/12/image2-about-us.png"
+              src="/whowe.jpg"
               alt="Who We Help"
               width={316}
               height={325}
@@ -252,7 +252,7 @@ export default function AboutUs() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="https://findthefirm.com/wp-content/uploads/2020/09/image-contacts.png"
+              src="/image-contacts.jpg"
               alt="Contact"
               width={449}
               height={378}
@@ -268,7 +268,7 @@ export default function AboutUs() {
     {/* Left Side - Image */}
     <div className="flex justify-center">
       <Image
-        src="https://findthefirm.com/wp-content/uploads/2020/12/image1-about-us.jpg"
+        src="/whoww.jpg"
         alt="FindTheFirm At a Glance"
         width={480}
         height={400}
