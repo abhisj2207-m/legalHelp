@@ -98,7 +98,34 @@ export default function ContactPage() {
       {/* ===== CONTACT FORM ===== */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-40">
-          <form className="bg-white p-6 sm:p-8 space-y-8 shadow-sm rounded-lg">
+        <form
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      formType: "contact",     // <-- Add this to identify the form
+      firstName: (e.target as any).firstName.value,
+      lastName: (e.target as any).lastName.value,
+      email: (e.target as any).email.value,
+      phone: phone,
+      address: (e.target as any).address?.value || "",
+      city: (e.target as any).city?.value || "",
+      state: (e.target as any).state?.value || "",
+      zip: (e.target as any).zip?.value || "",
+      country: (e.target as any).country?.value || "",
+      message: (e.target as any).message?.value || "",
+    };
+
+    await fetch("/api/save-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    alert("✅ Submitted Successfully");
+  }}
+  className="bg-white p-6 sm:p-8 space-y-8 shadow-sm rounded-lg"
+>
             {/* === ROW 1 === */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
