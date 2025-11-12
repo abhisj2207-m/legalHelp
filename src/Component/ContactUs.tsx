@@ -103,12 +103,13 @@ export default function ContactPage() {
     e.preventDefault();
 
     const payload = {
-      formType: "contact",     // <-- Add this to identify the form
+      formType: "contact",     // <-- identify which form submitted
       firstName: (e.target as any).firstName.value,
       lastName: (e.target as any).lastName.value,
       email: (e.target as any).email.value,
       phone: phone,
-      address: (e.target as any).address?.value || "",
+      address: (e.target as any).address1?.value || "",
+      address2: (e.target as any).address2?.value || "",
       city: (e.target as any).city?.value || "",
       state: (e.target as any).state?.value || "",
       zip: (e.target as any).zip?.value || "",
@@ -123,160 +124,189 @@ export default function ContactPage() {
     });
 
     alert("✅ Submitted Successfully");
+    (e.target as any).reset();
   }}
   className="bg-white p-6 sm:p-8 space-y-8 shadow-sm rounded-lg"
 >
-            {/* === ROW 1 === */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  First Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Last Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  required
-                />
-              </div>
-            </div>
 
-            {/* === EMAIL === */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                required
-              />
-            </div>
+  {/* === ROW 1 === */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label className="block text-sm font-medium text-gray-700">
+        First Name <span className="text-red-500">*</span>
+      </label>
+      <input
+        name="firstName"
+        type="text"
+        placeholder="First Name"
+        className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        required
+      />
+    </div>
+    <div>
+      <label className="block text-sm font-medium text-gray-700">
+        Last Name <span className="text-red-500">*</span>
+      </label>
+      <input
+        name="lastName"
+        type="text"
+        placeholder="Last Name"
+        className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        required
+      />
+    </div>
+  </div>
 
-            {/* === PHONE === */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Phone/Mobile <span className="text-red-500">*</span>
-              </label>
-              <PhoneInput
-                country={"us"}
-                value={phone}
-                onChange={(value: string) => setPhone(value)}
-                inputStyle={{
-                  width: "100%",
-                  borderRadius: "0.375rem",
-                  border: "1px solid #D1D5DB",
-                  height: "42px",
-                }}
-                buttonStyle={{
-                  borderTopLeftRadius: "0.375rem",
-                  borderBottomLeftRadius: "0.375rem",
-                  border: "1px solid #D1D5DB",
-                }}
-                dropdownStyle={{ width: "260px" }}
-                placeholder="Mobile Number"
-                inputProps={{
-                  required: true,
-                }}
-              />
-            </div>
+  {/* === EMAIL === */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700">
+      Email <span className="text-red-500">*</span>
+    </label>
+    <input
+      name="email"
+      type="email"
+      placeholder="Email"
+      className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+      required
+    />
+  </div>
 
-            {/* === ADDRESS FIELDS === */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Address
-              </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
-                {[
-                  "Address Line 1",
-                  "Address Line 2",
-                  "City",
-                  "State",
-                  "Zip Code",
-                  "Country",
-                ].map((label, i) => (
-                  <div key={i}>
-                    <label className="block text-sm text-gray-600">
-                      {label}
-                    </label>
-                    {label === "Country" ? (
-                      <select
-                        className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                        defaultValue="US"
-                        required
-                      >
-                        <option value="">Select Country</option>
-                        <option value="US">United States (US)</option>
-                        <option value="CA">Canada</option>
-                        <option value="IN">India</option>
-                        <option value="GB">United Kingdom</option>
-                        <option value="AU">Australia</option>
-                      </select>
-                    ) : (
-                      <input
-                        type="text"
-                        placeholder={label}
-                        required={label === "Zip Code"}
-                        className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+  {/* === PHONE === */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700">
+      Phone/Mobile <span className="text-red-500">*</span>
+    </label>
+    <PhoneInput
+      country={"us"}
+      value={phone}
+      onChange={(value: string) => setPhone(value)}
+      inputStyle={{
+        width: "100%",
+        borderRadius: "0.375rem",
+        border: "1px solid #D1D5DB",
+        height: "42px",
+      }}
+      buttonStyle={{
+        borderTopLeftRadius: "0.375rem",
+        borderBottomLeftRadius: "0.375rem",
+        border: "1px solid #D1D5DB",
+      }}
+      dropdownStyle={{ width: "260px" }}
+      placeholder="Mobile Number"
+      inputProps={{
+        name: "phone",   // <-- ✅ ensures phone field exists
+        required: true,
+      }}
+    />
+  </div>
 
-            {/* === MESSAGE === */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Message/Case Details
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Message or Case Details"
-                className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
-            </div>
+  {/* === ADDRESS FIELDS === */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700">
+      Address
+    </label>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+      <div>
+        <label className="block text-sm text-gray-600">Address Line 1</label>
+        <input
+          name="address1"
+          type="text"
+          placeholder="Address Line 1"
+          className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+      </div>
+      <div>
+        <label className="block text-sm text-gray-600">Address Line 2</label>
+        <input
+          name="address2"
+          type="text"
+          placeholder="Address Line 2"
+          className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+      </div>
+      <div>
+        <label className="block text-sm text-gray-600">City</label>
+        <input
+          name="city"
+          type="text"
+          placeholder="City"
+          className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+      </div>
+      <div>
+        <label className="block text-sm text-gray-600">State</label>
+        <input
+          name="state"
+          type="text"
+          placeholder="State"
+          className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+      </div>
+      <div>
+        <label className="block text-sm text-gray-600">Zip Code</label>
+        <input
+          name="zip"
+          type="text"
+          placeholder="Zip Code"
+          className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm text-gray-600">Country</label>
+        <select
+          name="country"
+          defaultValue="US"
+          className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          required
+        >
+          <option value="">Select Country</option>
+          <option value="US">United States (US)</option>
+          <option value="CA">Canada</option>
+          <option value="IN">India</option>
+          <option value="GB">United Kingdom</option>
+          <option value="AU">Australia</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
-            {/* === CONSENT CHECKBOX === */}
-            <div className="flex flex-col sm:flex-row items-start gap-3">
-              <input
-                type="checkbox"
-                className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                required
-              />
-              <p className="text-sm text-gray-600 leading-snug">
-                By checking the box, you agree to be contacted about your
-                potential case or promotional legal offers sent by or on behalf
-            of <strong>FusionByte Media, Legal Help Co</strong> and/or
-                participating law firms. You may receive live calls, automated
-                calls, emails, or text messages even if you are on a national or
-                state “Do Not Call” list. Consent is not a condition of any
-                purchase.
-              </p>
-            </div>
+  {/* === MESSAGE === */}
+  <div>
+    <label className="block text-sm font-medium text-gray-700">
+      Message/Case Details
+    </label>
+    <textarea
+      name="message"
+      rows={4}
+      placeholder="Message or Case Details"
+      className="w-full mt-1 border border-gray-300 rounded-md p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+    />
+  </div>
 
-            {/* === SUBMIT === */}
-            <div>
-              <button
-                type="submit"
-                className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-all duration-200 w-full sm:w-auto"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+  {/* === CONSENT CHECKBOX === */}
+  <div className="flex flex-col sm:flex-row items-start gap-3">
+    <input
+      name="consent"
+      type="checkbox"
+      className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+      required
+    />
+    <p className="text-sm text-gray-600 leading-snug">
+      By checking the box, you agree to be contacted regarding your inquiry.
+    </p>
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-all duration-200 w-full sm:w-auto"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+
         </div>
       </section>
 
