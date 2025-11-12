@@ -10,9 +10,9 @@ export default function FAQPage() {
   const faqs = [
     {
       id: 1,
-      title: "Is FindTheFirm a law firm?",
+      title: "Is Legal Help Co a law firm?",
       content:
-        "No, FindTheFirm is not a law firm. We are an independent organization that connects individuals with a network of licensed attorneys and law firms specializing in various legal areas, including mass torts.",
+        "No, Legal Help Co is not a law firm. We are an independent organization that connects individuals with a network of licensed attorneys and law firms specializing in various legal areas, including mass torts.",
     },
     {
       id: 2,
@@ -193,7 +193,7 @@ export default function FAQPage() {
         <p>
           <strong>Legal Notice</strong>
           <br />
-          FindTheFirm is not a law firm and does not provide legal advice. We
+          Legal Help Co is not a law firm and does not provide legal advice. We
           work with a network of independent, licensed attorneys and law firms.
           Submission of information does not create an attorney-client
           relationship. This website may be considered attorney advertising in

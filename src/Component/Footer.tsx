@@ -26,7 +26,7 @@ export default function Footer({
           <div className="flex items-center">
             <Image
               src="/logo.png"
-              alt="FindTheFirm Logo"
+              alt="Legal Help Co Logo"
               width={logoWidth}
               height={logoHeight}
               className="object-contain"
@@ -34,7 +34,7 @@ export default function Footer({
           </div>
 
           <p className="text-mb leading-relaxed text-gray-300 tracking-[0.025em]">
-            <span className="text-white font-semibold">FindTheFirm</span> helps
+            <span className="text-white font-semibold">Legal Help Co</span> helps
             individuals harmed by dangerous drugs, medical devices, or toxic
             exposures get connected to trusted legal professionals. We’re not a
             law firm—we’re your first step toward justice, offering free case
@@ -191,7 +191,7 @@ export default function Footer({
           <span className="not-italic font-semibold text-gray-400">
             Disclaimer:
           </span>{" "}
-          FindTheFirm is not a law firm and does not provide legal advice. We
+          Legal Help Co is not a law firm and does not provide legal advice. We
           connect individuals with law firms who may offer legal representation.
           This is attorney advertising. Results vary.
         </p>
@@ -200,7 +200,7 @@ export default function Footer({
       {/* ---------- COPYRIGHT ---------- */}
       <div className="text-center text-[12px] text-gray-500 mt-6 tracking-wide">
         © {new Date().getFullYear()} |{" "}
-        <span className="text-white font-medium">FindTheFirm</span>
+        <span className="text-white font-medium">Legal Help Co</span>
       </div>
     </footer>
   );

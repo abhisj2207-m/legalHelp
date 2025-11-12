@@ -40,7 +40,7 @@ export default function AboutUs() {
               We’re Here to Help You Find the Legal Support You Deserve
             </h3>
             <p className="mb-4 text-gray-700">
-              At <strong>FindTheFirm</strong>, we believe that{" "}
+              At <strong>Legal Help Co</strong>, we believe that{" "}
               <strong>every individual deserves justice</strong>—especially
               those harmed by powerful companies, defective products, or
               dangerous drugs.
@@ -63,7 +63,7 @@ export default function AboutUs() {
         <div className="container mx-auto px-6 sm:px-10 md:px-16 lg:px-24 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              Why We Started FindTheFirm
+              Why We Started Legal Help Co
             </h3>
             <ul className="list-disc ml-6 mb-4 space-y-2 text-gray-700">
               <li>Don’t know where to start</li>
@@ -72,7 +72,7 @@ export default function AboutUs() {
               <li>Don’t know which law firms are legitimate or experienced</li>
             </ul>
             <p className="mb-3 text-gray-700">
-              We saw that gap—and we built <strong>FindTheFirm</strong> to close
+              We saw that gap—and we built <strong>Legal Help Co</strong> to close
               it.
             </p>
             <p className="text-gray-700">
@@ -269,7 +269,7 @@ export default function AboutUs() {
     <div className="flex justify-center">
       <Image
         src="/whoww.jpg"
-        alt="FindTheFirm At a Glance"
+        alt="Legal Help Co At a Glance"
         width={480}
         height={400}
         className="rounded-lg shadow-lg object-cover w-full h-auto max-w-[480px]"
@@ -279,7 +279,7 @@ export default function AboutUs() {
     {/* Right Side - Content */}
     <div>
       <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-        FindTheFirm At a Glance
+        Legal Help Co At a Glance
       </h3>
 
       <ul className="space-y-4">
@@ -308,7 +308,7 @@ export default function AboutUs() {
       <section className="py-10 bg-gray-100 text-center">
         <div className="container mx-auto px-6 max-w-3xl">
           <p className="text-sm text-gray-700 leading-relaxed">
-            <strong>Legal Notice:</strong> FindTheFirm is not a law firm and does not
+            <strong>Legal Notice:</strong> Legal Help Co is not a law firm and does not
             provide legal advice. We work with a network of independent, licensed
             attorneys. Submission of information does not create an
             attorney-client relationship.

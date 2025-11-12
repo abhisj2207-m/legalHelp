@@ -286,7 +286,7 @@ export default function DepoProveraPage() {
             <span>
               By checking the box, you agree to be contacted about your potential
               case or promotional legal offers sent by or on behalf of Perfect
-              Legal Match, FusionByte Media, FindTheFirm and/or participating law
+              Legal Match, FusionByte Media, Legal Help Co and/or participating law
               firms.
             </span>
           </label>
@@ -308,7 +308,7 @@ export default function DepoProveraPage() {
           <p className="text-xs text-slate-600 leading-relaxed">
             Disclaimer: This is attorney advertising. No attorney-client
             relationship is formed by submitting this form or interacting with
-            FusionByte Media, FindTheFirm, or affiliated law firms. Laws vary by
+            FusionByte Media, Legal Help Co, or affiliated law firms. Laws vary by
             state; this content is for informational purposes and not legal
             advice. Consult a licensed attorney in your state for advice tailored
             to your situation.

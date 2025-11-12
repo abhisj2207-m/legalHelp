@@ -259,7 +259,7 @@ export default function CaseStudy1() {
                   potential case or promotional legal offers sent by or on
                   behalf of{" "}
                   <strong>
-                    Perfect Legal Match, FusionByte Media, FindTheFirm
+                    Perfect Legal Match, FusionByte Media, Legal Help Co
                   </strong>{" "}
                   and/or participating law firms. You may receive live calls,
                   automated calls, emails or text messages even if you are on a

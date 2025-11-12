@@ -232,7 +232,7 @@ export default function ContactPage() {
               <p className="text-sm text-gray-600 leading-snug">
                 By checking the box, you agree to be contacted about your
                 potential case or promotional legal offers sent by or on behalf
-                of <strong>FusionByte Media, FindTheFirm</strong> and/or
+            of <strong>FusionByte Media, Legal Help Co</strong> and/or
                 participating law firms. You may receive live calls, automated
                 calls, emails, or text messages even if you are on a national or
                 state “Do Not Call” list. Consent is not a condition of any

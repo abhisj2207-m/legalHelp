@@ -345,7 +345,7 @@ export default function CaseStudy1() {
                 <span>
                   By checking the box, you agree to be contacted about your potential case or promotional legal
                   offers sent by or on behalf of{" "}
-                  <strong>Perfect Legal Match, FusionByte Media, FindTheFirm</strong> and/or participating law
+                  <strong>Perfect Legal Match, FusionByte Media, Legal Help Co</strong> and/or participating law
                   firms. You may receive live calls, automated calls, emails or text messages even if you are
                   on a national or state “Do Not Call” list.
                 </span>

@@ -19,7 +19,7 @@ export default function Page() {
         </p>
 
         <p className="mb-6">
-          Welcome to <strong>FindTheFirm.com</strong> (“we,” “us,” or “our”). These
+          Welcome to <strong>LegalHelpCo.com</strong> (“we,” “us,” or “our”). These
           Terms &amp; Conditions (“Terms”) govern your access to and use of our
           website and any services, content, information, or forms offered
           through it (collectively, the “Services”).
@@ -169,10 +169,10 @@ export default function Page() {
         <p>
           <strong>Email:</strong>{" "}
           <a
-            href="mailto:info@FindTheFirm.com"
+            href="mailto:info@LegalHelpCo.com"
             className="text-red-600 font-semibold hover:underline"
           >
-            info@FindTheFirm.com
+            info@LegalHelpCo.com
           </a>
         </p>
       </section>

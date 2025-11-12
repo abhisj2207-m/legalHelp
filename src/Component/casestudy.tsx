@@ -6,64 +6,64 @@ import Link from "next/link";
 export default function CaseStudies() {
   const cases = [
     {
-      title: "Paraquat Herbicide",
-      desc: "Linked to Parkinson’s disease in agricultural workers and those exposed during spraying.",
+      title: "Paraquat Pesticide Exposure",
+      desc: "Long-term exposure to Paraquat has been linked to Parkinson’s disease, especially among farm workers and individuals near spraying sites.",
       img: "/herb.jpg",
       link: "/casestudy/paraquatCaseReview",
       custom: "h-[430px] -translate-y-[20px]",
     },
     {
-      title: "Firefighting Foam (AFFF)",
-      desc: "Toxic chemicals in AFFF have been associated with various forms of cancer, especially in firefighters and military personnel.",
+      title: "Firefighting Foam (AFFF) Chemicals",
+      desc: "Toxic PFAS chemicals found in firefighting foam have been connected to several cancers, mainly impacting firefighters and military service members.",
       img: "/foam.jpg",
       link: "/casestudy/aFFFFirefightingCaseReview",
       custom: "h-[480px] -translate-y-[20px]",
     },
     {
-      title: "Roundup® Weed Killer",
-      desc: "Glyphosate-based herbicide associated with non-Hodgkin’s lymphoma and other cancers.",
+      title: "Roundup® Weed Control",
+      desc: "Roundup’s active ingredient, glyphosate, has been associated with non-Hodgkin lymphoma and other severe health conditions.",
       img: "/weed.jpg",
       link: "/casestudy/roundupCasePage",
       custom: "h-[425px] translate-y-[-20px]",
     },
     {
-      title: "Depo-Provera Birth Control Shot",
-      desc: "Long-term use of Depo-Provera has been linked to reduced bone density and increased cancer risks.",
+      title: "Depo-Provera Birth Control Injection",
+      desc: "Extended use has been reported to decrease bone density and may increase the risk of certain cancers.",
       img: "/birth.jpg",
       link: "/casestudy/depoProveraPage",
       custom: "h-[460px] -translate-y-[30px]",
     },
     {
-      title: "Hair Relaxers",
-      desc: "Chemicals in hair straightening products may cause uterine, ovarian, and breast cancers.",
+      title: "Chemical Hair Relaxers",
+      desc: "Ingredients in chemical straightening products may increase the risk of uterine, breast, and ovarian cancers.",
       img: "/hair.jpg",
       link: "/casestudy/caseReviewPage",
       custom: "h-[425px] translate-y-[-30px]",
     },
     {
-      title: "NEC in Premature Infants (Baby Formula)",
-      desc: "Certain baby formulas have been linked to NEC—a deadly intestinal disease—in premature infants.",
+      title: "Baby Formula Linked to NEC",
+      desc: "Certain cow-milk–based formulas have been connected to NEC — a severe and sometimes fatal intestinal disease in premature infants.",
       img: "/baby.jpg",
       link: "/casestudy/nECBabyFormulaCaseReview",
       custom: "h-[475px] translate-y-[-30px]",
     },
     {
-      title: "Talcum Powder",
-      desc: "Long-term use of talc-based products like Johnson's Baby Powder has been linked to ovarian cancer and mesothelioma due to asbestos contamination.",
+      title: "Talcum Powder Products",
+      desc: "Use of talc powder products has been associated with ovarian cancer and mesothelioma, often due to asbestos contamination.",
       img: "/powder.jpg",
       link: "/casestudy/talcumPowderCaseReview",
       custom: "h-[450px] -translate-y-[25px]",
     },
     {
-      title: "Institutional Sexual Abuse",
-      desc: "Sexual misconduct by staff, officers, or agents acting under the authority of institutions including schools, churches, and organizations.",
+      title: "Institutional Abuse Claims",
+      desc: "Reports of misconduct and sexual abuse involving individuals acting under authority of schools, churches, and similar institutions.",
       img: "/Disscusion.jpg",
       link: "/casestudy/institutionalAbusePage",
       custom: "h-[440px] translate-y-[-25px]",
     },
     {
-      title: "Roblox Abuse",
-      desc: "Families nationwide are exploring legal action after reports of abuse and exploitation of children on the Roblox platform.",
+      title: "Roblox Online Exploitation",
+      desc: "Parents are pursuing legal options after claims of abuse and exploitation involving minors on the Roblox platform.",
       img: "/rob.jpg",
       link: "/casestudy/robloxAbusePage",
       custom: "h-[435px] -translate-y-[20px]",
@@ -75,15 +75,15 @@ export default function CaseStudies() {
       <div className="container mx-auto px-8 max-w-6xl text-center">
         {/* Header */}
         <span className="text-sm uppercase text-gray-500 tracking-widest">
-          Open Mass Tort Investigations
+          Active Mass Tort Investigations
         </span>
         <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4 text-gray-900">
-          Current Lawsuits We’re Working On
+          Current Legal Cases Under Review
         </h2>
         <p className="text-gray-600 max-w-3xl mx-auto mb-12">
-          If you or a loved one has been harmed by any of the following drugs,
-          chemicals, or medical situations, you may be eligible for significant
-          financial compensation. Click a case below to learn more.
+          If you or someone you care about has suffered harm due to one of these
+          products or exposures, you may qualify to file a claim for financial
+          compensation. Select a case to explore eligibility details.
         </p>
 
         {/* Boxes */}

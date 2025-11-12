@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 const faqs = [
   {
     id: 1,
-    title: "Is FindTheFirm a law firm?",
+    title: "Is Legal Help Co a law firm?",
     content: `No, we are not a law firm. We are a trusted <strong>legal intake and lead generation service</strong>. 
     Our job is to <strong>connect you to experienced law firms</strong> handling mass tort lawsuits.`,
   },

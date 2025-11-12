@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
         </p>
 
         <p className="mb-6">
-          At <strong>FindTheFirm.com</strong> (“we,” “our,” or “us”), we are committed to
+          At <strong>LegalHelpCo.com</strong> (“we,” “our,” or “us”), we are committed to
           protecting the privacy and security of the information you provide to
           us. This Privacy Policy explains how we collect, use, store, share,
           and protect your personal information when you use our website and
@@ -137,10 +137,10 @@ export default function PrivacyPolicy() {
         <p className="mb-6">
           To make such a request, contact us at{" "}
           <a
-            href="mailto:privacy@FindTheFirm.com"
+            href="mailto:privacy@LegalHelpCo.com"
             className="text-red-600 font-semibold"
           >
-            privacy@FindTheFirm.com
+            privacy@LegalHelpCo.com
           </a>
           .
         </p>
@@ -212,14 +212,14 @@ export default function PrivacyPolicy() {
           your information is handled, please contact:
         </p>
         <p>
-          <strong>FindTheFirm.com Privacy Team</strong>
+          <strong>LegalHelpCo.com Privacy Team</strong>
           <br />
           Email:{" "}
           <a
-            href="mailto:info@FindTheFirm.com"
+            href="mailto:info@LegalHelpCo.com"
             className="text-red-600 font-semibold"
           >
-            info@FindTheFirm.com
+            info@LegalHelpCo.com
           </a>
         </p>
       </section>

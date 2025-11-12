@@ -190,7 +190,7 @@ export default function BabyFormulaPage() {
             <span>
               By checking the box, you agree to be contacted about your potential
               case or promotional legal offers sent by or on behalf of Perfect
-              Legal Match, FusionByte Media, FindTheFirm and/or participating law
+            Legal Match, FusionByte Media, Legal Help Co and/or participating law
               firms. You may receive live calls, automated calls, emails or text
               messages even if you are on a national or state “Do Not Call” list.
               Consent is not a condition of purchase.

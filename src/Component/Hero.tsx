@@ -9,36 +9,36 @@ const slides = [
     image: "/banner3.jpg",
     title: (
       <>
-        Mass Tort Deadlines Are
-        <br /> Closing Fast. Act Now.
+        Legal Deadlines Don’t Wait.
+        <br /> Your Claim Could Expire Soon.
       </>
     ),
     subtitle:
-      "You may only have weeks or months to file your claim. Don’t wait—your free case review takes just 60 seconds.",
+      "Time is limited. Many claims close without action simply because people wait too long. A quick 60-second review could protect your right to compensation.",
     button: "Check If You Qualify",
   },
   {
     image: "/banner2.jpg",
     title: (
       <>
-        Injured by a Drug or Device?
-        <br /> You&apos;re Not Alone.
+        Hurt by a Drug or Medical Device?
+        <br /> Help Is Closer Than You Think.
       </>
     ),
     subtitle:
-      "Thousands have suffered. We're here to help you take the first step toward justice, support, and possible compensation.",
+      "You’re not the only one. Thousands are taking action against manufacturers. Discover whether you’re eligible to pursue compensation and accountability.",
     button: "Check If You Qualify",
   },
   {
     image: "/banner1.jpg",
     title: (
       <>
-        You Deserve Justice.
-        <br /> We Help You Find It.
+        Your Voice Matters.
+        <br /> We Help You Take Action.
       </>
     ),
     subtitle:
-      "If you’ve been harmed by a dangerous drug, product, or chemical, our team connects you with trusted legal experts.",
+      "If a dangerous product has altered your life, we connect you with experienced legal professionals who fight for clarity, answers, and justice.",
     button: "Check If You Qualify",
   },
 ];

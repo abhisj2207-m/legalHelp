@@ -26,7 +26,7 @@ export default function Navbar({ isOpen, setIsOpen }: NavbarProps) {
       <div className="hidden md:flex bg-[#262626] py-6 justify-start pl-40">
         <Image
           src="/logo.png"
-          alt="Find The Firm"
+          alt="Legal Help Co"
           width={70}
           height={55}
           className="object-cover"
@@ -82,7 +82,7 @@ function NavbarContent({
       <div className="flex items-center md:hidden mt-[8px]">
         <Image
           src="/logo1.png"
-          alt="Find The Firm"
+          alt="Legal Help Co"
           width={60}
           height={35}
           priority
@@ -202,7 +202,7 @@ function NavbarContent({
               <div className="flex justify-between items-center p-5 border-b border-gray-200">
                 <Image
                   src="/logo1.png"
-                  alt="Find The Firm"
+                  alt="Legal Help Co"
                   width={60}
                   height={45}
                   className="object-contain"

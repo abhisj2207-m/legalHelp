@@ -315,7 +315,7 @@ export default function RoundupCasePage() {
                 required
               />
               <label htmlFor="consent" className="text-xs sm:text-sm">
-                By checking the box, you agree to be contacted about your potential case or promotional legal offers sent by or on behalf of Perfect Legal Match, FusionByte Media, FindTheFirm and/or participating law firms.
+                By checking the box, you agree to be contacted about your potential case or promotional legal offers sent by or on behalf of Perfect Legal Match, FusionByte Media, Legal Help Co and/or participating law firms.
               </label>
             </div>
 
