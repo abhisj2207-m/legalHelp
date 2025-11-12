@@ -61,7 +61,7 @@ export default function ContactPage() {
         <div>
           <p className="font-semibold text-gray-900">Email</p>
           <p className="text-gray-700 text-sm sm:text-base">
-            info@findthefirm.com
+            info@legalhelpco.com
           </p>
         </div>
       </div>

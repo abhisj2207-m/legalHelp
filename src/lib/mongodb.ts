@@ -1,7 +1,7 @@
 // lib/mongodb.ts
 import mongoose from "mongoose";
 
-const MONGODB_URI="mongodb+srv://abhisj2207_db_user:iHyO0MPLWFdXmbqW@clustervrbs1.1rvheys.mongodb.net/?retryWrites=true&w=majority"
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 if (!MONGODB_URI) {
