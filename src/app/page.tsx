@@ -2,11 +2,8 @@
 import Navbar from "@/Component/Navbar";
 import { ArrowUp } from "lucide-react";
 import Hero from "@/Component/Hero";
-import Partners from "@/Component/Partners";
 import About from "@/Component/About";
-import Services from "@/Component/Services";
 import WhoWeAre from "@/Component/WhoWeAre";
-import Methodology from "@/Component/Methodology";
 import Testimonials from "@/Component/Testimonials";
 import CTA from "@/Component/CTA";
 import Footer from "@/Component/Footer";
