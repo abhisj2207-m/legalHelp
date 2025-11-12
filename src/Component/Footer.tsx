@@ -175,10 +175,10 @@ export default function Footer({
             <div>
               <p className="text-gray-400 text-[18px] mb-[2px]">Mail Us</p>
               <a
-                href="mailto:info@findthefirm.com"
+                href="mailto:info@legalhelpco.com"
                 className="text-white text-[14px] font-semibold hover:text-red-500 transition-colors duration-200"
               >
-                info@findthefirm.com
+                info@legalhelpco.com
               </a>
             </div>
           </div>
