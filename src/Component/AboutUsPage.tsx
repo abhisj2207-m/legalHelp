@@ -231,7 +231,7 @@ export default function AboutUs() {
                 <i className="far fa-envelope text-red-600 text-xl"></i>
                 <div>
                   <h6 className="font-semibold">Email</h6>
-                  <p>support@findthefirm.com</p>
+                  <p>support@legalhelpco.com</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">

@@ -46,19 +46,86 @@ export default function CaseStudy1() {
       </div>
 
       {/* ===== Content Section ===== */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16 text-gray-900">
-        <div className="text-center md:text-left mb-12">
-          <p className="font-semibold text-[16px] md:text-[17px]">
-            Firefighters across the U.S. are filing lawsuits claiming that toxic chemicals in AFFF foam caused cancer.
-          </p>
-          <div className="mt-6 flex justify-center md:justify-start">
-            <button className="bg-[#d62814] hover:bg-[#b91c0c] text-white font-semibold text-[14px] px-6 py-3 rounded shadow">
-              DO I QUALIFY
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* ===== Content Section ===== */}
+<section className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-16 text-gray-900">
 
+{/* Top Statement */}
+<div className="text-center md:text-left mb-12">
+  <p className="font-semibold text-[16px] md:text-[17px] leading-relaxed text-gray-900">
+    According to court documents from 2021, an increasing number of firemen have brought legal actions
+    alleging that carcinogenic substances in AFFF firefighting foam were to blame for their cancer.
+  </p>
+
+  <p className="text-[15px] text-gray-700 mt-3 max-w-4xl mx-auto md:mx-0">
+    In January 2021, a Texas man filed a class action lawsuit over dangerous per- and polyfluoroalkyl
+    substances (PFAS) and contamination from AFFF-using facilities, in addition to the individual AFFF
+    cases brought by current and past firemen.
+  </p>
+
+  <div className="mt-6 flex justify-center md:justify-start">
+    <button className="bg-[#d62814] hover:bg-[#b91c0c] text-white font-semibold text-[14px] px-6 py-3 rounded shadow transition-all">
+      DO I QUALIFY
+    </button>
+  </div>
+</div>
+
+{/* Image + Content */}
+<div className="grid md:grid-cols-2 gap-10 items-start mt-10">
+  {/* LEFT IMAGE */}
+  <div>
+    <Image
+      src="/foam.jpg"
+      alt="Firefighting Foam"
+      width={800}
+      height={600}
+      className="rounded-md shadow-md w-full object-cover"
+    />
+  </div>
+
+  {/* RIGHT CONTENT */}
+  <div>
+    <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-900">
+      AFFF: What Is It?
+    </h2>
+
+    <p className="text-gray-700 mb-4 leading-relaxed text-[15px]">
+      Aqueous film forming foam, generally known as AFFF, is a type of firefighting foam used to put out
+      liquid fuel fires. It’s water blended with a concentrate.
+    </p>
+
+    <p className="text-gray-700 leading-relaxed text-[15px]">
+      Using foam to put out fires spread like wildfire in the 1960s. In the 1970s, the Department of
+      Defence first used it on military installations. Since then, it has been utilised by both military
+      and civilian firemen for decades in training and fire suppression.
+    </p>
+  </div>
+</div>
+
+{/* Health Issues */}
+<div className="mt-16">
+  <h3 className="text-lg md:text-xl font-semibold mb-4 text-gray-900">
+    The EPA and the Agency for Toxic Substances and Disease Registry have connected PFAS to a number of
+    health issues, including:
+  </h3>
+
+  <ul className="list-disc pl-6 space-y-2 text-gray-800 text-[15px] leading-relaxed">
+    <li>Elevated cholesterol</li>
+    <li>Pregnant women’s high blood pressure and preeclampsia</li>
+    <li>Decreased vaccine response in children</li>
+    <li>Immune system adjustments</li>
+    <li>Alterations in liver enzymes</li>
+    <li>Decreases in the birth weight of babies</li>
+    <li>Increased chance of renal and testicular cancer among other cancers</li>
+    <li>Thyroid conditions</li>
+  </ul>
+</div>
+
+</section>
+
+
+
+
+      
       {/* ===== Case Review Form ===== */}
       <section className="bg-white py-12 md:py-16" id="review-form">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -203,6 +270,61 @@ export default function CaseStudy1() {
           </form>
         </div>
       </section>
+      {/* ===== FAQ Section ===== */}
+<section className="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
+    Questions and Answers
+  </h2>
+
+  <div className="space-y-4">
+    {faqs.map((faq, index) => (
+      <div
+        key={index}
+        className={`border border-gray-200 rounded-md overflow-hidden shadow-sm transition-all duration-300 ${
+          openIndex === index ? "shadow-md" : ""
+        }`}
+      >
+        {/* Accordion Button */}
+        <button
+          onClick={() => setOpenIndex(openIndex === index ? null : index)}
+          className={`w-full text-left px-5 sm:px-6 py-4 flex justify-between items-center font-semibold transition-all ${
+            openIndex === index
+              ? "bg-[#d62814] text-white"
+              : "bg-white text-gray-900 hover:bg-gray-50"
+          }`}
+        >
+          {faq.question}
+
+          <motion.span
+            animate={{ rotate: openIndex === index ? 90 : 0 }}
+            transition={{ duration: 0.3 }}
+            className={`text-lg font-bold ${
+              openIndex === index ? "text-white" : "text-[#d62814]"
+            }`}
+          >
+            ›
+          </motion.span>
+        </button>
+
+        {/* Accordion Content */}
+        <AnimatePresence>
+          {openIndex === index && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="bg-gray-50 px-5 sm:px-6 py-4 text-gray-700 text-[15px] space-y-3 leading-relaxed"
+            >
+              <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    ))}
+  </div>
+</section>
+
     </section>
   );
 }
