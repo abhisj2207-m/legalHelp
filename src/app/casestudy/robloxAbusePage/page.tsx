@@ -1,11 +1,12 @@
 "use client";
 
-import { checkIsOnDemandRevalidate } from "next/dist/server/api-utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function RobloxAbusePage() {
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,17 +24,57 @@ export default function RobloxAbusePage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, type } = e.target;
-    setFormData({
+    const target = e.target;
+  
+    if (target instanceof HTMLInputElement && target.type === "checkbox") {
+      setFormData({
+        ...formData,
+        [target.name]: target.checked,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [target.name]: target.value,
+      });
+    }
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+  
+    const payload = {
+      formType: "roblox-abuse-case",
       ...formData,
-      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+    };
+  
+    await fetch("/api/save-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  
+    setLoading(false);
+    alert("✅ Submitted Successfully!");
+  
+    (e.target as HTMLFormElement).reset();
+  
+    // 🔥 FIX: Reset React State so radios/checkbox don't throw checked errors
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      withinTwoYears: "",
+      reported: "",
+      consent: false,
     });
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Form submitted successfully!");
-  };
+  
 
   return (
     <main className="bg-white text-slate-800">
@@ -45,10 +86,8 @@ export default function RobloxAbusePage() {
           backgroundImage: "url('/rob.jpg')",
         }}
       >
-        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* Content */}
         <div className="relative container mx-auto px-4 sm:px-8 lg:px-40 z-10">
           <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center text-white">
             {/* Left Text */}
@@ -79,6 +118,7 @@ export default function RobloxAbusePage() {
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder="Enter your first name"
+                      required
                       className="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                     />
                   </div>
@@ -89,6 +129,7 @@ export default function RobloxAbusePage() {
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder="Enter your last name"
+                      required
                       className="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                     />
                   </div>
@@ -100,6 +141,7 @@ export default function RobloxAbusePage() {
                   <input
                     type="email"
                     name="email"
+                    required
                     placeholder="Email address"
                     value={formData.email}
                     onChange={handleChange}
@@ -113,6 +155,7 @@ export default function RobloxAbusePage() {
                   <input
                     type="tel"
                     name="phone"
+                    required
                     placeholder="Mobile number"
                     value={formData.phone}
                     onChange={handleChange}
@@ -169,6 +212,7 @@ export default function RobloxAbusePage() {
 
                 {/* Radios */}
                 <div className="grid md:grid-cols-2 gap-6">
+                  {/* Incident timing */}
                   <div>
                     <p className="text-sm font-medium text-gray-700">
                       Was the incident within the last 2 years?
@@ -196,6 +240,8 @@ export default function RobloxAbusePage() {
                       </label>
                     </div>
                   </div>
+
+                  {/* Reported */}
                   <div>
                     <p className="text-sm font-medium text-gray-700">
                       Was it reported to authorities?
@@ -232,6 +278,7 @@ export default function RobloxAbusePage() {
                     name="consent"
                     checked={formData.consent}
                     onChange={handleChange}
+                    required
                     className="mt-1"
                   />
                   <p className="text-xs text-gray-600 leading-relaxed">
@@ -243,9 +290,15 @@ export default function RobloxAbusePage() {
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
+                  disabled={loading}
+                  className={`w-full mt-6 bg-blue-600 text-white py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2 ${
+                    loading ? "opacity-70 cursor-not-allowed" : "hover:bg-blue-700"
+                  }`}
                 >
-                  Submit Form
+                  {loading && (
+                    <span className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+                  )}
+                  {loading ? "Submitting..." : "Submit Form"}
                 </button>
               </form>
             </div>
@@ -318,12 +371,13 @@ export default function RobloxAbusePage() {
   );
 }
 
-/* ===== Reusable Image/Text Sections ===== */
+/* ===== Reusable Components ===== */
 interface SectionImageLeftProps {
   title: string;
   image: string;
   points: string[];
 }
+
 function SectionImageLeft({ title, image, points }: SectionImageLeftProps) {
   return (
     <section className="py-16 px-4 sm:px-10 lg:px-40 bg-white">
@@ -340,7 +394,7 @@ function SectionImageLeft({ title, image, points }: SectionImageLeftProps) {
             {title}
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
-            {points.map((p: string, i: number) => (
+            {points.map((p, i) => (
               <li key={i}>{p}</li>
             ))}
           </ul>
@@ -360,6 +414,7 @@ interface SectionImageRightProps {
   title: string;
   image: string;
 }
+
 function SectionImageRight({ title, image }: SectionImageRightProps) {
   return (
     <section className="py-16 px-4 sm:px-10 lg:px-40 bg-gray-50">

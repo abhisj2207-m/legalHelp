@@ -1,8 +1,44 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
 export default function BabyFormulaPage() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.target as HTMLFormElement;
+
+    const data = {
+      formType: "baby-formula-nec",
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      address1: form.address1.value,
+      city: form.city.value,
+      state: form.state.value,
+      zip: form.zip.value,
+      country: form.country.value,
+      premature: form.premature.value,
+      necDiagnosis: form.necDiagnosis.value,
+      consent: form.consent.checked ? "yes" : "no",
+    };
+
+    await fetch("/api/save-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    setLoading(false);
+    alert("✅ Submitted Successfully!");
+    form.reset();
+  };
+
   return (
     <main className="text-gray-900 bg-white">
       {/* ===== Header Section ===== */}
@@ -23,7 +59,6 @@ export default function BabyFormulaPage() {
 
       {/* ===== Image + Content Section ===== */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid md:grid-cols-2 gap-10 items-center">
-        {/* LEFT IMAGE */}
         <div>
           <Image
             src="/necrotizing-enterocolitis-lawsuit-similac-1072x675-1.jpg"
@@ -34,7 +69,6 @@ export default function BabyFormulaPage() {
           />
         </div>
 
-        {/* RIGHT CONTENT */}
         <div>
           <p className="text-xl md:text-2xl font-semibold mb-4 text-gray-900">
             Who Can Qualify to File a Baby Formula NEC Lawsuit?
@@ -47,13 +81,10 @@ export default function BabyFormulaPage() {
           <p className="text-gray-700 mb-4 leading-relaxed text-[15px] sm:text-base">
             Many hospitals routinely provide formula to premature babies in the
             NICU without informing parents that **cow’s-milk formula has been
-            linked to NEC**. If you’re unsure what was given at the hospital,
-            attorneys can help review hospital and medical records.
+            linked to NEC**.
           </p>
           <p className="text-gray-700 mb-6 leading-relaxed text-[15px] sm:text-base">
-            If formula was also used at home, attorneys recommend saving any
-            purchase receipts, packaging, or remaining product — these may be
-            useful forms of evidence.
+            If formula was used at home, save receipts or leftover product.
           </p>
 
           <a
@@ -73,21 +104,15 @@ export default function BabyFormulaPage() {
 
         <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base">
           There has not been a **full recall specifically due to NEC** risks.
-          However, there have been separate recall events in the past involving:
         </p>
 
         <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base mt-3">
-          • product tampering (flour inside formula containers),  
-          • and a February 2022 recall related to possible bacterial
-          contamination of Similac, EleCare, and Alimentum products.
+          Previous recalls involved contamination concerns—not NEC warnings.
         </p>
 
         <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base mt-3">
-          During that investigation, multiple infants developed infections, and
-          some cases resulted in death. Although the FDA later confirmed certain
-          batches safe, legal claims continue to argue that **the manufacturers
-          failed to warn parents and hospitals about NEC risks in premature
-          infants.**
+          Legal claims argue that manufacturers failed to warn parents about NEC
+          risks for premature infants.
         </p>
       </section>
 
@@ -97,65 +122,79 @@ export default function BabyFormulaPage() {
           Case Review
         </h2>
 
-        <form className="bg-white p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-md rounded-md">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-md rounded-md"
+        >
           {/* Name Fields */}
           <input
+            name="firstName"
             type="text"
             placeholder="First Name"
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
             required
+            className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
           />
           <input
+            name="lastName"
             type="text"
             placeholder="Last Name"
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
             required
+            className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
           />
 
           {/* Email + Phone */}
           <input
+            name="email"
             type="email"
             placeholder="Email"
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
             required
+            className="border border-gray-300 p-3 rounded-md col-span-1 md:col-span-2 focus:ring-2 focus:ring-[#4dabe5]"
           />
           <input
+            name="phone"
             type="tel"
             placeholder="Phone Number"
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
             required
+            className="border border-gray-300 p-3 rounded-md col-span-1 md:col-span-2 focus:ring-2 focus:ring-[#4dabe5]"
           />
 
           {/* Address */}
           <input
+            name="address1"
             type="text"
             placeholder="Address Line 1"
-            className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
+            className="border border-gray-300 p-3 rounded-md col-span-1 md:col-span-2 focus:ring-2 focus:ring-[#4dabe5]"
           />
 
+          {/* City + State */}
           <div className="grid md:grid-cols-2 gap-4 col-span-1 md:col-span-2">
             <input
+              name="city"
               type="text"
               placeholder="City"
-              className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
+              className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             />
             <input
+              name="state"
               type="text"
               placeholder="State"
-              className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
+              className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             />
           </div>
 
+          {/* Zip + Country */}
           <div className="grid md:grid-cols-2 gap-4 col-span-1 md:col-span-2">
             <input
+              name="zip"
               type="text"
               placeholder="Zip Code"
-              className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
               required
+              className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             />
             <select
-              className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
+              name="country"
               required
+              className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             >
               <option value="">Select Country</option>
               <option value="US">United States</option>
@@ -166,8 +205,9 @@ export default function BabyFormulaPage() {
           {/* Additional Questions */}
           <div className="col-span-1 md:col-span-2 grid gap-4">
             <select
-              className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
+              name="premature"
               required
+              className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             >
               <option value="">Was your baby born prematurely?</option>
               <option value="Yes">Yes</option>
@@ -176,13 +216,12 @@ export default function BabyFormulaPage() {
             </select>
 
             <select
-              className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4dabe5]"
+              name="necDiagnosis"
               required
+              className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             >
               <option value="">Was your child diagnosed with NEC?</option>
-              <option value="Yes, diagnosed by a doctor">
-                Yes, confirmed by a doctor
-              </option>
+              <option value="Yes">Yes</option>
               <option value="No">No</option>
               <option value="Not Sure">Not Sure</option>
             </select>
@@ -190,23 +229,31 @@ export default function BabyFormulaPage() {
 
           {/* Consent */}
           <label className="col-span-1 md:col-span-2 flex flex-col sm:flex-row items-start gap-3 text-[14px] text-gray-700">
-            <input type="checkbox" required className="mt-1" />
+            <input
+              name="consent"
+              type="checkbox"
+              required
+              className="mt-1"
+            />
             <span>
               By checking the box, you agree to be contacted about your potential
-              case or promotional legal offers sent by or on behalf of Perfect
-              Legal Match, FusionByte Media, Legal Help Co and/or participating law
-              firms. You may receive calls, texts, or emails. Consent is not a
-              condition of purchase.
+              case or promotional legal offers.
             </span>
           </label>
 
-          {/* Submit Button */}
+          {/* Submit */}
           <div className="text-center pt-4 col-span-1 md:col-span-2">
             <button
               type="submit"
-              className="bg-[#29a4f0] text-white px-10 py-3 font-semibold rounded-md hover:bg-[#1c8ed6] transition-all duration-300 w-full sm:w-auto"
+              disabled={loading}
+              className={`bg-[#29a4f0] text-white px-10 py-3 font-semibold rounded-md transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 ${
+                loading ? "opacity-70 cursor-not-allowed" : "hover:bg-[#1c8ed6]"
+              }`}
             >
-              Submit
+              {loading && (
+                <span className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+              )}
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
