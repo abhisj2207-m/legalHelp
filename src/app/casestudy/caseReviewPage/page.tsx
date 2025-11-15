@@ -5,7 +5,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function CaseReviewPage() {
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
+    formType: "mva-case",
     firstName: "",
     lastName: "",
     email: "",
@@ -26,10 +29,43 @@ export default function CaseReviewPage() {
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Form submitted successfully!");
+
+    if (!formData.consent) {
+      alert("Please agree to the consent before submitting.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await fetch("/api/save-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      alert("Form submitted successfully!");
+      setFormData({
+        formType: "mva-case",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        city: "",
+        state: "",
+        zip: "",
+        withinTwoYears: "",
+        reported: "",
+        consent: false,
+      });
+    } catch (err) {
+      alert("There was an error submitting the form.");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -241,11 +277,24 @@ export default function CaseReviewPage() {
                   </p>
                 </div>
 
+                {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
+                  disabled={loading}
+                  className={`w-full mt-6 py-3 rounded-lg font-semibold text-white transition ${
+                    loading
+                      ? "bg-blue-400 cursor-not-allowed"
+                      : "bg-blue-600 hover:bg-blue-700"
+                  }`}
                 >
-                  Submit Form
+                  {loading ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <span className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                      Submitting...
+                    </div>
+                  ) : (
+                    "Submit Form"
+                  )}
                 </button>
               </form>
             </div>
@@ -253,7 +302,7 @@ export default function CaseReviewPage() {
         </div>
       </section>
 
-      {/* ✅ OTHER SECTIONS */}
+      {/* OTHER SECTIONS */}
       <SectionWrapper
         title="Current Legal Investigations"
         image="/MVA1.jpg"
@@ -298,7 +347,7 @@ export default function CaseReviewPage() {
   );
 }
 
-/* ✅ Reusable Section Wrapper */
+/* Reusable Section Wrapper */
 function SectionWrapper({
   title,
   image,
