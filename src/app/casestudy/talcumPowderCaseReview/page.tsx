@@ -5,6 +5,68 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function TalcumPowderCaseReview() {
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address1: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: "",
+    usedTalcRegularly: "",
+    diagnosedCancer: "",
+    consent: false,
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type } = e.target;
+    setForm({
+      ...form,
+      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const payload = {
+      formType: "talcum-powder-case",
+      ...form,
+      submittedAt: new Date().toISOString(),
+    };
+
+    await fetch("/api/save-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    alert("Submitted Successfully!");
+    setLoading(false);
+
+    setForm({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address1: "",
+      city: "",
+      state: "",
+      zip: "",
+      country: "",
+      usedTalcRegularly: "",
+      diagnosedCancer: "",
+      consent: false,
+    });
+  };
+
   return (
     <main className="bg-white text-gray-900">
       {/* ===== HEADER ===== */}
@@ -59,7 +121,6 @@ export default function TalcumPowderCaseReview() {
 
       {/* ===== DO YOU QUALIFY ===== */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-        {/* Left Text */}
         <div>
           <h3 className="text-2xl font-semibold mb-4 text-gray-900">
             Who May Qualify for a Talcum Powder Lawsuit?
@@ -84,7 +145,6 @@ export default function TalcumPowderCaseReview() {
           </ul>
         </div>
 
-        {/* Right Image */}
         <div>
           <Image
             src="/talcum-claims-lawsuit-department.jpg"
@@ -98,7 +158,6 @@ export default function TalcumPowderCaseReview() {
 
       {/* ===== PRODUCT DISCONTINUATION ===== */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-        {/* Left Image */}
         <div>
           <Image
             src="/talcum2.jpg"
@@ -109,7 +168,6 @@ export default function TalcumPowderCaseReview() {
           />
         </div>
 
-        {/* Right Text */}
         <div>
           <h4 className="text-2xl font-semibold mb-4 text-gray-900">
             Johnson & Johnson Ends Talc-Based Product Sales
@@ -117,8 +175,7 @@ export default function TalcumPowderCaseReview() {
           <p className="text-gray-700 mb-4 leading-relaxed text-[15px]">
             Under increasing legal and scientific scrutiny, J&amp;J announced
             in 2022 that it would phase out talc-based baby powder worldwide by
-            2023—replacing it with a cornstarch-based formula. The decision came
-            after years of litigation connecting talcum use to asbestos exposure.
+            2023—replacing it with a cornstarch-based formula.
           </p>
 
           <h5 className="text-lg font-semibold mb-3">
@@ -141,7 +198,7 @@ export default function TalcumPowderCaseReview() {
         <p className="text-gray-700 text-[15px] leading-relaxed max-w-3xl mx-auto">
           If you or a family member developed ovarian cancer or mesothelioma
           after using talcum powder products, a free consultation can help
-          determine your legal options and potential compensation eligibility.
+          determine your legal options.
         </p>
       </section>
 
@@ -151,26 +208,44 @@ export default function TalcumPowderCaseReview() {
           Case Review
         </h2>
 
-        <form method="POST" className="bg-white p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-md rounded-md">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-md rounded-md"
+        >
           <input
+            name="firstName"
+            value={form.firstName}
+            onChange={handleChange}
             type="text"
             placeholder="First Name"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             required
           />
+
           <input
+            name="lastName"
+            value={form.lastName}
+            onChange={handleChange}
             type="text"
             placeholder="Last Name"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             required
           />
+
           <input
+            name="email"
+            value={form.email}
+            onChange={handleChange}
             type="email"
             placeholder="Email"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
             required
           />
+
           <input
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
             type="tel"
             placeholder="Phone Number"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
@@ -178,6 +253,9 @@ export default function TalcumPowderCaseReview() {
           />
 
           <input
+            name="address1"
+            value={form.address1}
+            onChange={handleChange}
             type="text"
             placeholder="Address Line 1"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
@@ -185,11 +263,17 @@ export default function TalcumPowderCaseReview() {
 
           <div className="grid md:grid-cols-2 gap-4 col-span-1 md:col-span-2">
             <input
+              name="city"
+              value={form.city}
+              onChange={handleChange}
               type="text"
               placeholder="City"
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             />
             <input
+              name="state"
+              value={form.state}
+              onChange={handleChange}
               type="text"
               placeholder="State"
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
@@ -198,12 +282,19 @@ export default function TalcumPowderCaseReview() {
 
           <div className="grid md:grid-cols-2 gap-4 col-span-1 md:col-span-2">
             <input
+              name="zip"
+              value={form.zip}
+              onChange={handleChange}
               type="text"
               placeholder="Zip Code"
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
               required
             />
+
             <select
+              name="country"
+              value={form.country}
+              onChange={handleChange}
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
               required
             >
@@ -215,20 +306,31 @@ export default function TalcumPowderCaseReview() {
 
           <div className="col-span-1 md:col-span-2 grid gap-4">
             <select
+              name="usedTalcRegularly"
+              value={form.usedTalcRegularly}
+              onChange={handleChange}
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
               required
             >
-              <option value="">Did you or a loved one use talcum powder regularly (e.g., Johnson’s Baby Powder or Shower to Shower)?</option>
+              <option value="">
+                Did you or a loved one use talcum powder regularly?
+              </option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               <option value="Not Sure">Not Sure</option>
             </select>
 
             <select
+              name="diagnosedCancer"
+              value={form.diagnosedCancer}
+              onChange={handleChange}
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
               required
             >
-              <option value="">Have you or a loved one been diagnosed with ovarian cancer or mesothelioma?</option>
+              <option value="">
+                Have you or a loved one been diagnosed with ovarian cancer or
+                mesothelioma?
+              </option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               <option value="Not Sure">Not Sure</option>
@@ -236,21 +338,31 @@ export default function TalcumPowderCaseReview() {
           </div>
 
           <label className="col-span-1 md:col-span-2 flex flex-col sm:flex-row items-start gap-3 text-[14px] text-gray-700">
-            <input type="checkbox" required className="mt-1" />
+            <input
+              name="consent"
+              checked={form.consent}
+              onChange={handleChange}
+              type="checkbox"
+              required
+              className="mt-1"
+            />
             <span>
               By checking the box, you agree to be contacted regarding your
               potential case by Perfect Legal Match, FusionByte Media, Legal
-              Help Co, and participating law firms. You may receive calls,
-              emails, or text messages. Consent is not required for purchase.
+              Help Co, and participating law firms.
             </span>
           </label>
 
           <div className="text-center pt-4 col-span-1 md:col-span-2">
             <button
               type="submit"
-              className="bg-[#29a4f0] text-white px-10 py-3 font-semibold rounded-md hover:bg-[#1c8ed6] transition-all duration-300 w-full sm:w-auto"
+              disabled={loading}
+              className="bg-[#29a4f0] text-white px-10 py-3 font-semibold rounded-md hover:bg-[#1c8ed6] transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2"
             >
-              Submit
+              {loading && (
+                <span className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              )}
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
@@ -265,24 +377,19 @@ export default function TalcumPowderCaseReview() {
 
           <div className="space-y-2">
             <Accordion title="Is this a class action lawsuit?" defaultOpen>
-              No. These are individual lawsuits grouped under federal MDL 2738,
-              where each claimant maintains their own case and potential payout.
+              No. These are individual lawsuits under federal MDL 2738.
             </Accordion>
 
             <Accordion title="What compensation might I receive?">
-              Compensation can include medical expenses, lost income, pain and
-              suffering, and, in some cases, wrongful death damages for family
-              members.
+              Compensation can include medical bills, lost income, and more.
             </Accordion>
 
             <Accordion title="How much will it cost me to file?">
-              Most law firms operate on a contingency basis—you pay nothing
-              upfront and only owe a fee if your case is successful.
+              Most attorneys work on contingency — no fees unless you win.
             </Accordion>
 
             <Accordion title="What is the filing deadline?">
-              Each state sets a statute of limitations. Contact an attorney as
-              soon as possible to preserve your right to compensation.
+              Each state has its own statute of limitations.
             </Accordion>
           </div>
         </div>
@@ -293,14 +400,11 @@ export default function TalcumPowderCaseReview() {
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-sm">
           <h4 className="font-semibold mb-2">Your Information Is Secure</h4>
           <p className="mb-4">
-            Your submission is completely confidential. By submitting, you
-            consent to be contacted by phone, text, or email regarding your
-            potential case.
+            Your submission is confidential and you consent to be contacted.
           </p>
 
           <p className="text-xs text-slate-600">
             Attorney Advertising. Past results do not guarantee future outcomes.
-            Sponsored by legal marketing partners and participating law firms.
           </p>
         </div>
       </section>
