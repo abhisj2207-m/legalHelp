@@ -1,11 +1,12 @@
 "use client";
 
-import { checkIsOnDemandRevalidate } from "next/dist/server/api-utils";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function InstitutionalAbusePage() {
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,23 +18,70 @@ export default function InstitutionalAbusePage() {
     zip: "",
     location: "",
     details: "",
-    withinTwoYears: "",
-    reported: "",
-    consent: false,
+    withinTwoYears: "", // "yes" | "no" | ""
+    reported: "", // "yes" | "no" | ""
+    consent: false, // boolean for checkbox checked prop
   });
 
+  /* HANDLE CHANGE */
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
-    const { name, value, type, ariaChecked  } = e.target;
-    setFormData({ ...formData, [name]: type === "checkbox" ? checkIsOnDemandRevalidate : value });
+    const target = e.target as HTMLInputElement;
+    const { name, type, value, checked } = target;
+
+    if (type === "checkbox") {
+      setFormData((s) => ({ ...s, [name]: checked }));
+      return;
+    }
+
+    setFormData((s) => ({ ...s, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  /* SUBMIT */
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Form submitted successfully!");
+    setLoading(true);
+
+    const payload = {
+      ...formData,
+      formType: "institutional-abuse",
+      consent: formData.consent ? "yes" : "no",
+    };
+
+    try {
+      const res = await fetch("/api/save-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Network response was not ok");
+
+      alert("Form submitted successfully!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        city: "",
+        state: "",
+        zip: "",
+        location: "",
+        details: "",
+        withinTwoYears: "",
+        reported: "",
+        consent: false,
+      });
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -244,9 +292,21 @@ export default function InstitutionalAbusePage() {
 
                 <button
                   type="submit"
-                  className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
+                  disabled={loading}
+                  className={`w-full mt-6 text-white py-3 rounded-lg font-semibold transition ${
+                    loading
+                      ? "bg-blue-400 cursor-not-allowed"
+                      : "bg-blue-600 hover:bg-blue-700"
+                  }`}
                 >
-                  Submit Form
+                  {loading ? (
+                    <span className="flex justify-center items-center gap-2">
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      Submitting...
+                    </span>
+                  ) : (
+                    "Submit Form"
+                  )}
                 </button>
               </form>
             </div>
@@ -275,9 +335,8 @@ export default function InstitutionalAbusePage() {
           </p>
         </div>
 
-        {/* Alternating Image Sections */}
+        {/* Dynamic Sections */}
         {sections.map((section, i) => {
-          // Sections 1 and 3 (index 1 and 3) should have image on right on desktop
           const imageOnRight = i === 1 || i === 3;
           return (
             <div
@@ -347,8 +406,7 @@ const sections = [
   },
   {
     title: "Who May Qualify",
-    image:
-      "/a3.jpg",
+    image: "/a3.jpg",
     content: `
       <p>You may be eligible for a <strong>free, confidential case review</strong> if you or your loved one experienced abuse in:</p>
       <ul class="list-disc list-inside mt-2 space-y-1">
@@ -360,8 +418,7 @@ const sections = [
   },
   {
     title: "What You’ll Receive",
-    image:
-      "/a4.jpg",
+    image: "/a4.jpg",
     content: `
       <ul class="list-disc list-inside space-y-2">
         <li><strong>Free Legal Consultation:</strong> No cost to review your claim.</li>
