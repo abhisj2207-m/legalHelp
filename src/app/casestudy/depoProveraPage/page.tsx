@@ -1,8 +1,50 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
 export default function DepoProveraPage() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.target;
+
+    const payload = {
+      formType: "depo-provera",
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      address1: form.address1.value,
+      city: form.city.value,
+      state: form.state.value,
+      zip: form.zip.value,
+      country: form.country.value,
+      receivedInjection: form.receivedInjection.value,
+      diagnosed: form.diagnosed.value,
+      consent: form.consent.checked,
+    };
+
+    try {
+      await fetch("/api/save-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      alert("Submitted Successfully!");
+      form.reset();
+    } catch (err) {
+      alert("Error submitting form");
+      console.error(err);
+    }
+
+    setLoading(false);
+  };
+
   return (
     <main className="bg-white text-slate-800">
       {/* ===== HEADER ===== */}
@@ -32,7 +74,8 @@ export default function DepoProveraPage() {
           lawsuits argue that Pfizer and other manufacturers failed to warn
           patients and physicians about these risks. As of July 2025, more than
           550 lawsuits have been consolidated into a federal multidistrict
-          litigation (MDL), with more expected as attorneys continue to screen new cases.
+          litigation (MDL), with more expected as attorneys continue to screen
+          new cases.
         </p>
       </section>
 
@@ -66,9 +109,8 @@ export default function DepoProveraPage() {
           </h2>
           <ul className="list-disc pl-5 text-[15px] space-y-2 text-gray-700">
             <li>
-              A major 2024 study published in the{" "}
-              <em>British Medical Journal</em> found that women who used
-              Depo-Provera for a year or more were{" "}
+              A major 2024 study published in the <em>British Medical Journal</em>{" "}
+              found that women who used Depo-Provera for a year or more were{" "}
               <strong>5.6× more likely to develop a meningioma</strong>.
             </li>
             <li>
@@ -94,9 +136,7 @@ export default function DepoProveraPage() {
           <h2 className="text-xl md:text-2xl font-semibold mb-4">
             Who May Qualify to File a Depo-Provera Claim?
           </h2>
-          <p className="text-[15px] mb-4">
-            People may qualify if the following applies:
-          </p>
+          <p className="text-[15px] mb-4">People may qualify if the following applies:</p>
           <ul className="list-disc pl-5 text-[15px] space-y-2 text-gray-700">
             <li>You received Depo-Provera or the generic injection.</li>
             <li>You were on the medication for at least 1 year.</li>
@@ -150,12 +190,10 @@ export default function DepoProveraPage() {
           </h2>
           <ul className="list-disc pl-5 text-[15px] space-y-2 text-gray-700">
             <li>
-              <strong>Feb 2025:</strong> MDL No. 3140 created in the Northern
-              District of Florida.
+              <strong>Feb 2025:</strong> MDL No. 3140 created in the Northern District of Florida.
             </li>
             <li>
-              <strong>July 2025:</strong> Over 550 active lawsuits with new
-              claims screened each month.
+              <strong>July 2025:</strong> Over 550 active lawsuits with new claims screened each month.
             </li>
             <li>
               <strong>Discovery:</strong> More than 8,000 documents exchanged between attorneys.
@@ -182,26 +220,36 @@ export default function DepoProveraPage() {
           Case Review
         </h2>
 
-        <form className="bg-white p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-md rounded-md">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 shadow-md rounded-md"
+        >
           <input
+            name="firstName"
             type="text"
             placeholder="First Name"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             required
           />
+
           <input
+            name="lastName"
             type="text"
             placeholder="Last Name"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             required
           />
+
           <input
+            name="email"
             type="email"
             placeholder="Email"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
             required
           />
+
           <input
+            name="phone"
             type="tel"
             placeholder="Phone Number"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
@@ -209,6 +257,7 @@ export default function DepoProveraPage() {
           />
 
           <input
+            name="address1"
             type="text"
             placeholder="Address Line 1"
             className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5] col-span-1 md:col-span-2"
@@ -217,11 +266,14 @@ export default function DepoProveraPage() {
           {/* City + State */}
           <div className="grid md:grid-cols-2 gap-4 col-span-1 md:col-span-2">
             <input
+              name="city"
               type="text"
               placeholder="City"
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             />
+
             <input
+              name="state"
               type="text"
               placeholder="State"
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
@@ -231,12 +283,15 @@ export default function DepoProveraPage() {
           {/* Zip + Country */}
           <div className="grid md:grid-cols-2 gap-4 col-span-1 md:col-span-2">
             <input
+              name="zip"
               type="text"
               placeholder="Zip Code"
-              required
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
+              required
             />
+
             <select
+              name="country"
               required
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             >
@@ -249,6 +304,7 @@ export default function DepoProveraPage() {
           {/* Questions */}
           <div className="col-span-1 md:col-span-2 grid gap-4">
             <select
+              name="receivedInjection"
               required
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             >
@@ -259,10 +315,13 @@ export default function DepoProveraPage() {
             </select>
 
             <select
+              name="diagnosed"
               required
               className="border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-[#4dabe5]"
             >
-              <option value="">Were you later diagnosed with a meningioma?</option>
+              <option value="">
+                Were you later diagnosed with a meningioma?
+              </option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
               <option value="Not Sure">Not Sure</option>
@@ -271,7 +330,7 @@ export default function DepoProveraPage() {
 
           {/* Consent */}
           <label className="col-span-1 md:col-span-2 flex flex-col sm:flex-row items-start gap-3 text-[14px] text-gray-700">
-            <input type="checkbox" required className="mt-1" />
+            <input name="consent" type="checkbox" required className="mt-1" />
             <span>
               By checking the box, you agree to be contacted regarding your
               case by Perfect Legal Match, FusionByte Media, Legal Help Co
@@ -282,9 +341,12 @@ export default function DepoProveraPage() {
           <div className="text-center pt-4 col-span-1 md:col-span-2">
             <button
               type="submit"
-              className="bg-[#29a4f0] text-white px-10 py-3 font-semibold rounded-md hover:bg-[#1c8ed6] transition-all duration-300 w-full sm:w-auto"
+              disabled={loading}
+              className={`bg-[#29a4f0] text-white px-10 py-3 font-semibold rounded-md transition-all duration-300 w-full sm:w-auto ${
+                loading ? "opacity-70 cursor-not-allowed" : "hover:bg-[#1c8ed6]"
+              }`}
             >
-              Submit
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
