@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function CaseStudy1() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false); // <-- added
 
   const faqs = [
     {
@@ -111,7 +112,41 @@ export default function CaseStudy1() {
           </p>
 
           {/* --- FORM START --- */}
-          <form className="bg-white shadow-md rounded-md p-6 sm:p-8 space-y-6">
+          <form
+            className="bg-white shadow-md rounded-md p-6 sm:p-8 space-y-6"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setLoading(true);
+
+              const form = e.target as any;
+
+              const payload = {
+                formType: "paraquat-case",
+                firstName: form[0].value,
+                lastName: form[1].value,
+                email: form[2].value,
+                phone: form[3].value,
+                address1: form[4].value,
+                address2: form[5].value,
+                city: form[6].value,
+                state: form[7].value,
+                zip: form[8].value,
+                country: form[9].value,
+                exposureType: form[10].value,
+                diagnosis: form[11].value,
+              };
+
+              await fetch("/api/save-lead", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+              });
+
+              setLoading(false);
+              alert("✅ Submitted Successfully");
+              form.reset();
+            }}
+          >
             {/* Name Fields */}
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
@@ -277,14 +312,31 @@ export default function CaseStudy1() {
             <div className="text-center pt-2">
               <button
                 type="submit"
-                className="bg-[#dc2626] text-white px-10 py-3 font-semibold rounded-md hover:bg-red-700 transition-all duration-300 w-full sm:w-auto"
+                disabled={loading}
+                className={`px-10 py-3 font-semibold rounded-md w-full sm:w-auto transition-all duration-300 text-white 
+                  ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-[#dc2626] hover:bg-red-700"}`}
               >
-                Submit
+                {loading ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="loader border-2 border-white border-t-transparent w-5 h-5 rounded-full animate-spin"></span>
+                    Submitting...
+                  </div>
+                ) : (
+                  "Submit"
+                )}
               </button>
             </div>
           </form>
         </div>
       </section>
+
+      {/* Spinner CSS */}
+      <style jsx>{`
+        .loader {
+          border-radius: 50%;
+          border-top-color: transparent !important;
+        }
+      `}</style>
     </section>
   );
 }
