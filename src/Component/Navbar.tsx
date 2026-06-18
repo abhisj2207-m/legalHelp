@@ -138,6 +138,7 @@ function NavbarContent({
                   ["Talcum Powder Case Review", "/casestudy/talcumPowderCaseReview"],
                   ["Institutional Sexual Abuse Case Review", "/casestudy/institutionalAbusePage"],
                   ["Roblox Abuse Lawsuit", "/casestudy/robloxAbusePage"],
+                  ["Rideshare Abuse Free Case Review", "/casestudy/rideshareAbuseFreeCaseReview"],
                 ].map(([label, href]) => (
                   <motion.li
                     key={href}
